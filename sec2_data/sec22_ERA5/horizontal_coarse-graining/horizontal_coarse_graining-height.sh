@@ -119,6 +119,8 @@ foo () {
 }
 
 # Main: Run after horizontal_coarse_graining.sh!!
+# We use CDO version 2.0.6 (https://code.mpimet.mpg.de/projects/cdo)
+
 . ~/.bashrc
 conda activate sympy
 

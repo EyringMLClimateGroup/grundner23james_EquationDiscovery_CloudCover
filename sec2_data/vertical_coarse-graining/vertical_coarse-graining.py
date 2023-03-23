@@ -17,7 +17,7 @@ var_name = sys.argv[1]
 # -> ds_zh_lr: Low resolution vertical half levels
 # -> ds_zh_hr: High resolution vertical half levels
 if SOURCE == 'NARVAL':
-    base_path = '/pf/b/b309170/my_work/NARVAL'
+    base_path = '~/my_work/NARVAL'
     # Variable name of half levels
     height_var = 'z_ifc'
     # Setting var_names (which variables to vertically interpolate)
@@ -53,7 +53,7 @@ elif SOURCE == 'QUBICC':
         ds_zh_lr = xr.open_dataset(os.path.join(base_path, 'grids/zghalf_icon-a_capped.nc'))
         ds_zh_hr = xr.open_dataset(os.path.join(base_path, 'grids/qubicc_l91_zghalf_ml_0015_R02B04_G.nc'))
 elif SOURCE == 'HDCP2': # Actually I'm not working with HDCP2 data at the moment
-    base_path = '/pf/b/b309170/bd1179_work/hdcp2' 
+    base_path = '~/bd1179_work/hdcp2' 
     # Variable name of half levels
     height_var = 'z_ifc'
     # Setting var_names (which variables to vertically interpolate)
@@ -64,11 +64,11 @@ elif SOURCE == 'HDCP2': # Actually I'm not working with HDCP2 data at the moment
     # Setting ds_zh_lr and ds_zh_hr
     assert GRID_RES == 'R02B04' # Not implemented for R02B05
     zghalf_highres_path = os.path.join(base_path, 'grids') # Need 151 vertical layers here, not 76 like in NARVAL.
-    zghalf_lowres_path = os.path.join('/pf/b/b309170/my_work/NARVAL', 'data_var_vertinterp/zg') 
+    zghalf_lowres_path = os.path.join('~/my_work/NARVAL', 'data_var_vertinterp/zg') 
     ds_zh_hr = xr.open_dataset(os.path.join(zghalf_highres_path, 'z_ifc_vert_remapcon_3d_coarse_ll_DOM03_ML.nc'))
     ds_zh_lr = xr.open_dataset(os.path.join(zghalf_lowres_path, 'zghalf_icon-a_capped.nc'))
 elif SOURCE == 'DYAMOND':
-    base_path = '/home/b/b309170/bd1179_work/DYAMOND'
+    base_path = '~/bd1179_work/DYAMOND'
     # Variable name of half levels
     height_var = 'h'
     # Setting var_names (which variables to vertically interpolate)
@@ -80,21 +80,21 @@ elif SOURCE == 'DYAMOND':
     # Both ds_zh_hr and ds_zh_lr have to be defined on exactly the same horizontal grid!
     assert GRID_RES == 'R02B05'
     zghalf_highres_path = os.path.join(base_path, 'grid_extpar')
-    zghalf_lowres_path = '/home/b/b309170/my_work/QUBICC/grids/'
+    zghalf_lowres_path = '~/my_work/QUBICC/grids/'
     if VAR_TYPES == 'state_vars':
         ds_zh_hr = xr.open_dataset(os.path.join(zghalf_highres_path, 'zghalf_dyamond_R2B10_lkm1007_vgrid_R02B05_l78.nc'))
     elif VAR_TYPES == 'cloud_vars':
         ds_zh_hr = xr.open_dataset(os.path.join(zghalf_highres_path, 'zghalf_dyamond_R2B10_lkm1007_vgrid_R02B05_l61.nc'))
     ds_zh_lr = xr.open_dataset(os.path.join(zghalf_lowres_path, 'zghalf_icon-a_capped_R02B05.nc'))
 elif SOURCE == 'ERA5':
-    base_path = '/home/b/b309170/bd1179_work/ERA5'
+    base_path = '~/bd1179_work/ERA5'
     # Variable name of half levels
     height_var = 'z'
     # Setting ds_zh_lr and ds_zh_hr
     # Both ds_zh_hr and ds_zh_lr have to be defined on exactly the same horizontal grid!
     assert GRID_RES == 'R02B05'
     zghalf_highres_path = os.path.join(base_path, 'hcg_data')
-    zghalf_lowres_path = '/home/b/b309170/my_work/QUBICC/grids/'
+    zghalf_lowres_path = '~/my_work/QUBICC/grids/'
     # # In ERA5, the height of full and half levels depend on the time step!
     # if VAR_TYPES == 'state_vars':
     #     ds_zh_hr = xr.open_dataset(os.path.join(zghalf_highres_path, 'zghalf_dyamond_R2B10_lkm1007_vgrid_R02B05_l78.nc'))
@@ -108,8 +108,8 @@ print('Currently processing %s'%var_name)
 
 # Input and output folders
 if SOURCE == 'NARVAL':
-    var_path = os.path.join('/pf/b/b309170/bd1179_work/narval/hcg_files', var_name)
-    output_path = os.path.join('/pf/b/b309170/bd1179_work/narval/hvcg_files', var_name)
+    var_path = os.path.join('~/bd1179_work/narval/hcg_files', var_name)
+    output_path = os.path.join('~/bd1179_work/narval/hvcg_files', var_name)
 elif SOURCE in ['QUBICC', 'DYAMOND', 'ERA5']:
     var_path = os.path.join(base_path, 'hcg_data', var_name)
     output_path = os.path.join(base_path, 'hvcg_data', var_name)

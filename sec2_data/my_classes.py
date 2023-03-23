@@ -190,25 +190,25 @@ def load_data(source, days, vert_interp=True, resolution='R02B04', order_of_vars
     # ['qv', 'qc', 'qi', 'temp', 'pres', 'rho', 'u', 'v', 'zg', 'coriolis', 'fr_lake', 'fr_land', 'clc', 'cl_area']
     if source == 'narval':
         if vert_interp == True and resolution == 'R02B04':
-            path = '/pf/b/b309170/my_work/NARVAL/data_var_vertinterp/'
+            path = '~/my_work/NARVAL/data_var_vertinterp/'
 #             surface_nearest_layer = 30
             file_name_prefix = 'int_var_'
             height_variable_name = 'zg'
             height_file_location = 'zg/zg_icon-a_capped.nc'
         elif vert_interp == False and resolution == 'R02B04':
-            path = '/pf/b/b309170/my_work/NARVAL/data/'
+            path = '~/my_work/NARVAL/data/'
 #             surface_nearest_layer = 74
             file_name_prefix = ''
             height_variable_name = 'zf'
             height_file_location = 'z_ifc/zf_R02B04_NARVALI_fg_DOM01.nc'
         elif resolution == 'R02B05':
-            path = '/pf/b/b309170/my_work/NARVAL/data_var_vertinterp_R02B05/'
+            path = '~/my_work/NARVAL/data_var_vertinterp_R02B05/'
             file_name_prefix = 'int_var_'
             height_variable_name = 'zg'
             height_file_location = 'zg/zg_icon-a_capped.nc'
             
         # Grid path and name for the Coriolis Parameter
-        grid_path = '/pf/b/b309170/my_work/NARVAL/grid_extpar'
+        grid_path = '~/my_work/NARVAL/grid_extpar'
         if resolution == 'R02B04':
             grid_name = 'icon_grid_0005_R02B04_G.nc'
         elif resolution == 'R02B05':
@@ -304,17 +304,17 @@ def load_data(source, days, vert_interp=True, resolution='R02B04', order_of_vars
     if source == 'qubicc':
         
         if resolution == 'R02B04':
-            path = '/pf/b/b309170/my_work/QUBICC/data_var_vertinterp/'
+            path = '~/my_work/QUBICC/data_var_vertinterp/'
 #             surface_nearest_layer = 74
 #             file_name_prefix = ''
             height_filename = 'zg_icon-a_capped.nc'
         elif resolution == 'R02B05':
-            path = '/pf/b/b309170/my_work/QUBICC/data_var_vertinterp_R02B05/'
+            path = '~/my_work/QUBICC/data_var_vertinterp_R02B05/'
 #             file_name_prefix = 'int_var_'
             height_filename = 'zg_icon-a_capped_R02B05.nc'
     
         # Grid path and name for the Coriolis Parameter
-        grid_path = '/pf/b/b309170/my_work/QUBICC/grids'
+        grid_path = '~/my_work/QUBICC/grids'
         if resolution == 'R02B04':
             grid_name = 'icon_grid_0013_R02B04_G.nc'
         elif resolution == 'R02B05':
@@ -327,7 +327,7 @@ def load_data(source, days, vert_interp=True, resolution='R02B04', order_of_vars
 
         ## Time-invariant input
         #zg
-        DS = xr.open_dataset('/pf/b/b309170/my_work/QUBICC/grids/'+height_filename)
+        DS = xr.open_dataset('~/my_work/QUBICC/grids/'+height_filename)
         da = DS.zg.values
         #not_nan = ~np.isnan(da[0,:])
         data_dict['zg'] = da[:,not_nan]
@@ -602,7 +602,7 @@ def get_timesteps(path):
 #     # Yields default (order of) variables: 
 #     # ['qv', 'qc', 'qi', 'temp', 'pres', 'rho', 'u', 'v', 'zf', 'fr_lake', 'fr_land', 'clc']
     
-#     path = '/pf/b/b309170/my_work/NARVAL/data/'
+#     path = '~/my_work/NARVAL/data/'
 # #     surface_nearest_layer = 74
 #     file_name_prefix = ''
 #     height_variable_name = 'zf'

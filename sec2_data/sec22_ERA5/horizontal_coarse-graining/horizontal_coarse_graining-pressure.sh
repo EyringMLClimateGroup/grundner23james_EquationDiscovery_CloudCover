@@ -89,6 +89,8 @@ foo () {
 
 ## Main: Run after horizontal_coarse_graining.sh!!
 # inpath='/work/ka1081/DYAMOND/ICON-2.5km'
+
+# We use CDO version 2.0.6 (https://code.mpimet.mpg.de/projects/cdo)
 module load cdo
 
 files="`ls $outpath`"

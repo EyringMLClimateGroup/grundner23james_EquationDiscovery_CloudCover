@@ -72,6 +72,7 @@ foo () {
                 touch ${outpath}/${file_name}_R02B05.nc
                 echo ${file_name}_R02B05.nc
                 
+                # We use CDO version 2.0.6 (https://code.mpimet.mpg.de/projects/cdo)
                 # For the T639 grid with its spectral coefficients use (spectral -> Gaussian grid point -> Unstructured ICON):
                 cdo -f nc -P 36 remapcon,${target_grid} -sp2gp ${inpath}/${file} ${outpath}/${file_name}_R02B05.nc
         fi

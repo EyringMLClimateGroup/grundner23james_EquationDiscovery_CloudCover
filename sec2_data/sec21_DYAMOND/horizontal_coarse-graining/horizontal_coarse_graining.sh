@@ -58,6 +58,8 @@ foo () {
                 
                 # I think we can run 36 processes per compute node
                 # cdo -f nc -P 36 remapcon,${target_grid} -setgrid,${source_grid} ${inpath}/${file} ${outpath}/${file_name}_R02B05.nc
+                
+                # We use CDO version 2.0.6 (https://code.mpimet.mpg.de/projects/cdo)
                 cdo -f nc remapcon,${target_grid} -setgrid,${source_grid} ${inpath}/${file} ${outpath}/${file_name}_R02B05.nc
         fi
     fi

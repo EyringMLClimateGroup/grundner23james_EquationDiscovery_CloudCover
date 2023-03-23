@@ -1,0 +1,30 @@
+Grid resolutions (hor x vert):
+==============================
+- orig: 83886080 x (90 - 13)
+- orig (cloud vars): 83886080 x (90 - 30)
+- hcg R2B5: 81920 x (90 - 13)
+- hcg (cloud vars) R2B5: 81920 x (90 - 30)
+- hvcg: 81920 x (47 - 16)
+
+We have the following grids:
+----------------------------
+Original DYAMOND grid (83886080 grid cells in the horizontal, 77 full levels in the vertical)
+- Horizontal fields: /pool/data/ICON/grids/public/mpim/0017/icon_grid_0017_R02B10_G.nc
+- Vertical - zghalf_dyamond_R2B10_lkm1007_vgrid.nc (91 half levels in the vertical -- needs to be retrieved from the DYAMOND folder!!)
+
+ICON-A grid (81920 grid cells in the horizontal, 31 full levels in the vertical)
+- Horizontal fields: /pool/data/ICON/grids/public/mpim/0019/icon_grid_0019_R02B05_G.nc
+- Vertical - Half Levels: zghalf_icon-a_capped_R02B05.nc
+- Full vertical grid: atm_amip_R2B5_120n_atm_vgrid_ml.nc
+
+Upsampled grid for cl_area (83886080 grid cells in the horizontal, 32 half levels in the vertical)
+- zghalf_icon-a_capped_upsampled_R02B05_DYAMOND.nc
+
+Intermediate grid (81920 grid cells in the horizontal, 192 half levels in the vertical)
+- zghalf_dyamond_R2B10_lkm1007_vgrid_R02B05.nc
+
+To recreate zghalf_icon-a_capped_upsampled_R02B05_DYAMOND.nc:
+-------------------------------------------------------------
+cdo selname,zghalf atm_amip_R2B5_120n_atm_vgrid_ml.nc zghalf.nc
+cdo sellevidx,17/48 zghalf.nc zghalf_icon-a_capped_R02B05.nc
+cdo remapcon,icon_grid_0017_R02B10_G.nc -setgrid,icon_grid_0019_R02B05_G.nc zghalf_icon-a_capped_R02B05.nc zghalf_icon-a_capped_upsampled_R02B05_DYAMOND.nc 

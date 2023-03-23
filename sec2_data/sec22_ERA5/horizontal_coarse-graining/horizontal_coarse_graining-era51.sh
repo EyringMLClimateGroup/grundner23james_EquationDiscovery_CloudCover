@@ -56,6 +56,7 @@ foo () {
                 touch ${outpath}/${file_name}_R02B05.nc
                 echo ${file_name}_R02B05.nc
                 
+                # We use CDO version 2.0.6 (https://code.mpimet.mpg.de/projects/cdo)
                 # I think we can run 36 processes per compute node                
                 # For the N320 grid use -setgridtype,regular or -setgridtype,regularnn (reduced Gaussian -> Gaussian (linear trafo) -> Unstructured ICON):
                 cdo -f nc -P 36 remapcon,${target_grid} -setgridtype,regular ${inpath}/${file} ${outpath}/${file_name}_R02B05.nc
