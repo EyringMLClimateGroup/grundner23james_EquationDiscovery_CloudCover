@@ -1,0 +1,19 @@
+Time it took: 13804.649
+Output variable: cl_volume
+Best values: [0.0031578954210526315, 0.00012531427067669174]
+Time it took: 17003.156
+Output variable: cl_area
+Best values: [0.01, 0.0001002516165413534]
+
+Output variable: cl_volume
+Training score:
+MSE: 1425.808, R2: 0.240
+Validation score:
+MSE: 1434.352, R2: 0.239
+
+Output variable: cl_area
+Training score:
+MSE: 1366.547, R2: 0.207
+Validation score:
+MSE: 1373.496, R2: 0.205
+

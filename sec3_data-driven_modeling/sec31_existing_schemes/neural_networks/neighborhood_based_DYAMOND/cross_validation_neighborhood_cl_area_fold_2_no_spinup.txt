@@ -1,0 +1,55 @@
+How to use the model:
+model = tensorflow.keras.models.load_model(filename+'.h5')
+model.predict(scaled input data)
+
+Input/Output
+------------
+Input and output variables:
+['hus' 'clw' 'cli' 'ta' 'pa' 'ua' 'va' 'zg' 'coriolis' 'hus_below'
+ 'hus_above' 'clw_below' 'clw_above' 'cli_below' 'cli_above' 'ta_below'
+ 'ta_above' 'pa_below' 'pa_above' 'ua_below' 'ua_above' 'va_below'
+ 'va_above' 'zg_below' 'zg_above' 'ta_sfc' 'cl_area']
+The (order of) input variables:
+['hus' 'clw' 'cli' 'ta' 'pa' 'ua' 'va' 'zg' 'coriolis' 'hus_below'
+ 'hus_above' 'clw_below' 'clw_above' 'cli_below' 'cli_above' 'ta_below'
+ 'ta_above' 'pa_below' 'pa_above' 'ua_below' 'ua_above' 'va_below'
+ 'va_above' 'zg_below' 'zg_above' 'ta_sfc']
+
+Scaling
+-------
+Standard Scaler mean values:
+[ 4.12205844e-03  2.25493498e-05  3.38180032e-06  2.57065512e+02
+  6.00030443e+04  5.64610581e+00 -1.37740994e-01  5.64080139e+03
+ -3.57089429e-06  4.54094027e-03  3.61198633e-03  1.87264536e-05
+  2.20681588e-05  3.25153779e-06  3.14416843e-06  2.60037765e+02
+  2.54213150e+02  6.35446947e+04  5.63345428e+04  5.30931547e+00
+  5.97102662e+00 -1.13576294e-01 -1.57507288e-01  4.99025519e+03
+  6.35226002e+03  2.85734951e+02]
+Standard Scaler standard deviation:
+[5.07648249e-03 5.69702638e-05 1.01308124e-05 3.00533874e+01
+ 3.12514292e+04 1.38936273e+01 8.68580342e+00 5.66963918e+03
+ 8.83059572e-05 5.34928729e-03 4.70052902e-03 5.26945855e-05
+ 5.69039984e-05 1.00686931e-05 9.95413685e-06 2.92634097e+01
+ 3.06125125e+01 3.08843670e+04 3.13078786e+04 1.33417606e+01
+ 1.44251638e+01 8.48212864e+00 8.78934270e+00 5.24124829e+03
+ 6.10809445e+03 1.57456548e+01]
+=> Apply this standard scaling to (only) the input data before processing.
+
+Preprocessed data
+-----------------
+/home/b/b309170/my_work/icon-ml_data/cloud_cover_parameterization/neighborhood_based_DYAMOND/cloud_cover_input_train_11.npy
+/home/b/b309170/my_work/icon-ml_data/cloud_cover_parameterization/neighborhood_based_DYAMOND/cloud_cover_input_valid_11.npy
+/home/b/b309170/my_work/icon-ml_data/cloud_cover_parameterization/neighborhood_based_DYAMOND/cloud_cover_output_train_11.npy
+/home/b/b309170/my_work/icon-ml_data/cloud_cover_parameterization/neighborhood_based_DYAMOND/cloud_cover_output_valid_11.npy
+/home/b/b309170/my_work/icon-ml_data/cloud_cover_parameterization/neighborhood_based_DYAMOND/cloud_cover_input_test_11.npy
+/home/b/b309170/my_work/icon-ml_data/cloud_cover_parameterization/neighborhood_based_DYAMOND/cloud_cover_output_test_11.npy
+
+Model
+-----
+Results from the 2-th fold
+Training epochs: 18
+Weights restored from epoch: 17
+Unbounded training loss: 47.7682
+Unbounded validation loss: 46.9411
+Bounded training loss: 40.8207
+Bounded validation loss: 39.9952

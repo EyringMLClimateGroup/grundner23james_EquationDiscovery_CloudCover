@@ -1,0 +1,483 @@
+Linear function fit: 
+31.41*rh
+44.63
+The R2-score on the training data is 0.573
+The R2-score on the validation data is 0.577
+The MSE on the training data is 736.24
+The MSE on the validation data is 730.38
+The bounded MSE on the training data is 725.66
+The bounded MSE on the validation data is 719.89
+
+Linear function fit: 
+-15.54*ta
+41.31*rh
+44.63
+The R2-score on the training data is 0.656
+The R2-score on the validation data is 0.661
+The MSE on the training data is 592.98
+The MSE on the validation data is 584.85
+The bounded MSE on the training data is 544.69
+The bounded MSE on the validation data is 538.06
+
+Linear function fit: 
+7.19*cli
+-12.58*ta
+38.36*rh
+44.62
+The R2-score on the training data is 0.682
+The R2-score on the validation data is 0.687
+The MSE on the training data is 547.96
+The MSE on the validation data is 541.15
+The bounded MSE on the training data is 501.16
+The bounded MSE on the validation data is 495.68
+
+Linear function fit: 
+7.44*clw
+8.15*cli
+-12.95*ta
+35.51*rh
+44.62
+The R2-score on the training data is 0.708
+The R2-score on the validation data is 0.713
+The MSE on the training data is 502.40
+The MSE on the validation data is 495.87
+The bounded MSE on the training data is 449.34
+The bounded MSE on the validation data is 443.97
+
+Linear function fit: 
+-6.43*hus
+7.57*clw
+7.25*cli
+-9.10*ta
+37.08*rh
+44.62
+The R2-score on the training data is 0.717
+The R2-score on the validation data is 0.721
+The MSE on the training data is 488.00
+The MSE on the validation data is 481.82
+The bounded MSE on the training data is 444.31
+The bounded MSE on the validation data is 438.92
+
+Linear function fit: 
+-6.22*hus
+7.47*clw
+7.07*cli
+-7.92*ta
+3.14*U
+36.94*rh
+44.62
+The R2-score on the training data is 0.721
+The R2-score on the validation data is 0.725
+The MSE on the training data is 479.81
+The MSE on the validation data is 474.40
+The bounded MSE on the training data is 434.82
+The bounded MSE on the validation data is 430.10
+
+Linear function fit: 
+-6.22*hus
+7.33*clw
+7.03*cli
+-7.83*ta
+3.05*U
+36.95*rh
+2.50*pa_zz
+44.62
+The R2-score on the training data is 0.725
+The R2-score on the validation data is 0.729
+The MSE on the training data is 473.52
+The MSE on the validation data is 468.12
+The bounded MSE on the training data is 427.51
+The bounded MSE on the validation data is 422.78
+
+Linear function fit: 
+-5.60*hus
+6.75*clw
+7.02*cli
+-8.23*ta
+3.09*U
+37.11*rh
+3.30*pa_zz
+-2.74*rh_z
+44.62
+The R2-score on the training data is 0.729
+The R2-score on the validation data is 0.733
+The MSE on the training data is 466.93
+The MSE on the validation data is 461.76
+The bounded MSE on the training data is 419.08
+The bounded MSE on the validation data is 414.73
+
+Linear function fit: 
+-5.74*hus
+6.56*clw
+7.08*cli
+-7.92*ta
+3.12*U
+36.84*rh
+-2.22*hus_zz
+3.23*pa_zz
+-2.60*rh_z
+44.62
+The R2-score on the training data is 0.732
+The R2-score on the validation data is 0.736
+The MSE on the training data is 462.15
+The MSE on the validation data is 456.48
+The bounded MSE on the training data is 414.95
+The bounded MSE on the validation data is 410.30
+
+Linear function fit: 
+-5.83*hus
+6.32*clw
+7.19*cli
+-7.87*ta
+3.11*U
+36.59*rh
+-2.16*hus_zz
+2.13*clw_z
+3.46*pa_zz
+-3.31*rh_z
+44.62
+The R2-score on the training data is 0.734
+The R2-score on the validation data is 0.738
+The MSE on the training data is 458.27
+The MSE on the validation data is 452.52
+The bounded MSE on the training data is 410.65
+The bounded MSE on the validation data is 406.00
+
+Linear function fit: 
+-5.81*hus
+7.00*clw
+7.27*cli
+-7.94*ta
+3.08*U
+36.39*rh
+-2.32*hus_zz
+2.22*clw_z
+1.89*clw_zz
+3.53*pa_zz
+-3.53*rh_z
+44.62
+The R2-score on the training data is 0.736
+The R2-score on the validation data is 0.740
+The MSE on the training data is 455.06
+The MSE on the validation data is 449.22
+The bounded MSE on the training data is 407.36
+The bounded MSE on the validation data is 402.73
+
+Linear function fit: 
+-6.09*hus
+6.79*clw
+7.23*cli
+-7.61*ta
+3.27*U
+36.68*rh
+-2.24*hus_zz
+2.33*clw_z
+1.90*clw_zz
+3.10*pa_zz
+-1.81*U_z
+-3.48*rh_z
+44.62
+The R2-score on the training data is 0.738
+The R2-score on the validation data is 0.742
+The MSE on the training data is 452.15
+The MSE on the validation data is 446.37
+The bounded MSE on the training data is 404.72
+The bounded MSE on the validation data is 400.15
+
+Linear function fit: 
+-6.21*hus
+6.61*clw
+7.38*cli
+-7.15*ta
+3.44*U
+36.83*rh
+-2.20*hus_zz
+2.35*clw_z
+1.85*clw_zz
+1.47*ta_z
+3.42*pa_zz
+-2.05*U_z
+-2.93*rh_z
+44.62
+The R2-score on the training data is 0.738
+The R2-score on the validation data is 0.743
+The MSE on the training data is 450.85
+The MSE on the validation data is 444.70
+The bounded MSE on the training data is 403.57
+The bounded MSE on the validation data is 398.67
+
+Linear function fit: 
+-6.18*hus
+6.50*clw
+7.37*cli
+-7.07*ta
+3.44*U
+36.98*rh
+-2.02*hus_zz
+2.39*clw_z
+1.79*clw_zz
+2.25*ta_z
+3.49*pa_zz
+-1.11*U_z
+1.77*U_zz
+-2.72*rh_z
+44.63
+The R2-score on the training data is 0.739
+The R2-score on the validation data is 0.743
+The MSE on the training data is 449.46
+The MSE on the validation data is 443.35
+The bounded MSE on the training data is 402.30
+The bounded MSE on the validation data is 397.41
+
+Linear function fit: 
+-6.63*hus
+6.31*clw
+7.01*cli
+-4.45*ta
+-3.30*pa
+3.40*U
+38.13*rh
+-1.99*hus_zz
+2.51*clw_z
+1.75*clw_zz
+2.46*ta_z
+3.52*pa_zz
+-1.01*U_z
+1.68*U_zz
+-2.72*rh_z
+44.63
+The R2-score on the training data is 0.740
+The R2-score on the validation data is 0.744
+The MSE on the training data is 448.30
+The MSE on the validation data is 441.93
+The bounded MSE on the training data is 402.26
+The bounded MSE on the validation data is 397.17
+
+Linear function fit: 
+-4.08*hus
+6.37*clw
+7.00*cli
+-2.88*ta
+-24.31*pa
+3.31*U
+37.28*rh
+-1.77*hus_zz
+2.61*clw_z
+1.75*clw_zz
+2.65*ta_z
+-18.69*pa_z
+0.24*pa_zz
+-0.86*U_z
+1.83*U_zz
+-2.94*rh_z
+44.63
+The R2-score on the training data is 0.742
+The R2-score on the validation data is 0.746
+The MSE on the training data is 445.06
+The MSE on the validation data is 438.79
+The bounded MSE on the training data is 397.92
+The bounded MSE on the validation data is 392.98
+
+Linear function fit: 
+-3.98*hus
+6.36*clw
+7.03*cli
+-2.54*ta
+-25.47*pa
+3.34*U
+37.22*rh
+-1.09*hus_zz
+2.61*clw_z
+2.08*clw_zz
+2.89*ta_z
+-19.48*pa_z
+-0.82*pa_zz
+-0.93*U_z
+1.82*U_zz
+-3.05*rh_z
+-1.66*rh_zz
+44.63
+The R2-score on the training data is 0.742
+The R2-score on the validation data is 0.746
+The MSE on the training data is 444.08
+The MSE on the validation data is 437.96
+The bounded MSE on the training data is 397.88
+The bounded MSE on the validation data is 392.98
+
+Linear function fit: 
+-4.26*hus
+6.38*clw
+7.06*cli
+-2.27*ta
+-25.36*pa
+3.31*U
+37.35*rh
+-1.10*hus_zz
+2.58*clw_z
+2.07*clw_zz
+-0.97*cli_z
+3.00*ta_z
+-19.34*pa_z
+-0.85*pa_zz
+-0.89*U_z
+1.85*U_zz
+-2.79*rh_z
+-1.67*rh_zz
+44.63
+The R2-score on the training data is 0.743
+The R2-score on the validation data is 0.747
+The MSE on the training data is 443.23
+The MSE on the validation data is 437.12
+The bounded MSE on the training data is 397.41
+The bounded MSE on the validation data is 392.49
+
+Linear function fit: 
+-5.28*hus
+6.49*clw
+7.08*cli
+-2.36*ta
+-25.32*pa
+3.33*U
+37.45*rh
+-1.46*hus_z
+-1.23*hus_zz
+2.60*clw_z
+2.07*clw_zz
+-1.11*cli_z
+3.24*ta_z
+-19.34*pa_z
+-0.98*pa_zz
+-0.81*U_z
+1.95*U_zz
+-1.83*rh_z
+-1.43*rh_zz
+44.63
+The R2-score on the training data is 0.743
+The R2-score on the validation data is 0.747
+The MSE on the training data is 442.70
+The MSE on the validation data is 436.48
+The bounded MSE on the training data is 396.42
+The bounded MSE on the validation data is 391.49
+
+Linear function fit: 
+-5.26*hus
+6.46*clw
+7.07*cli
+-2.24*ta
+-26.14*pa
+-0.70*fr_land
+3.22*U
+37.43*rh
+-1.39*hus_z
+-1.23*hus_zz
+2.59*clw_z
+2.05*clw_zz
+-1.11*cli_z
+3.32*ta_z
+-19.99*pa_z
+-1.11*pa_zz
+-0.78*U_z
+1.95*U_zz
+-1.83*rh_z
+-1.41*rh_zz
+44.63
+The R2-score on the training data is 0.743
+The R2-score on the validation data is 0.747
+The MSE on the training data is 442.26
+The MSE on the validation data is 436.37
+The bounded MSE on the training data is 395.87
+The bounded MSE on the validation data is 391.27
+
+Linear function fit: 
+-5.40*hus
+6.47*clw
+7.00*cli
+-2.15*ta
+-25.89*pa
+-0.71*fr_land
+3.23*U
+37.49*rh
+-1.47*hus_z
+-1.31*hus_zz
+2.58*clw_z
+2.06*clw_zz
+-1.32*cli_z
+-0.70*cli_zz
+3.33*ta_z
+-19.69*pa_z
+-0.98*pa_zz
+-0.81*U_z
+1.91*U_zz
+-1.71*rh_z
+-1.24*rh_zz
+44.63
+The R2-score on the training data is 0.744
+The R2-score on the validation data is 0.748
+The MSE on the training data is 441.82
+The MSE on the validation data is 435.75
+The bounded MSE on the training data is 395.50
+The bounded MSE on the validation data is 390.71
+
+Linear function fit: 
+-5.57*hus
+6.40*clw
+7.02*cli
+-1.81*ta
+-26.30*pa
+-0.70*fr_land
+3.26*U
+37.64*rh
+-1.59*hus_z
+-1.49*hus_zz
+2.61*clw_z
+2.05*clw_zz
+-1.38*cli_z
+-0.71*cli_zz
+3.88*ta_z
+0.99*ta_zz
+-19.88*pa_z
+-1.12*pa_zz
+-0.84*U_z
+1.95*U_zz
+-1.46*rh_z
+-0.70*rh_zz
+44.63
+The R2-score on the training data is 0.744
+The R2-score on the validation data is 0.748
+The MSE on the training data is 441.42
+The MSE on the validation data is 435.36
+The bounded MSE on the training data is 395.25
+The bounded MSE on the validation data is 390.33
+
+Linear function fit: 
+-5.42*hus
+6.44*clw
+7.02*cli
+-2.73*ta
+-25.51*pa
+-2.39*zg
+-0.75*fr_land
+3.16*U
+37.47*rh
+-1.69*hus_z
+-1.52*hus_zz
+2.64*clw_z
+2.07*clw_zz
+-1.36*cli_z
+-0.72*cli_zz
+4.10*ta_z
+1.12*ta_zz
+-17.53*pa_z
+-0.75*pa_zz
+-0.84*U_z
+2.00*U_zz
+-1.29*rh_z
+-0.67*rh_zz
+44.63
+The R2-score on the training data is 0.744
+The R2-score on the validation data is 0.748
+The MSE on the training data is 441.22
+The MSE on the validation data is 435.05
+The bounded MSE on the training data is 394.67
+The bounded MSE on the validation data is 389.67
+

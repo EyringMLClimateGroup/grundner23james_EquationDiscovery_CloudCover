@@ -1,0 +1,50 @@
+First round
+-----------
+Time it took: 7408.523
+Output variable: cl_volume
+Best values: [0.05, 200.0]
+Time it took: 7638.679
+Output variable: cl_area
+Best values: [0.05, 200.0]
+
+Second round
+------------
+Time it took: 7286.078
+Output variable: cl_area
+Best values: [0.4, 200000.0]
+Time it took: 7347.594
+Output variable: cl_volume
+Best values: [0.4, 88280.70175438597]
+
+Third round
+-----------
+Time it took: 7331.911
+Output variable: cl_area
+Best values: [0.7289473684210527, 400000.0]
+Time it took: 7445.392
+Output variable: cl_volume
+Best values: [0.8, 122506.2656641604]
+
+Forth round
+-----------
+Time it took: 7367.754
+Output variable: cl_volume
+Best values: [1.2, 172932.33082706766]
+Time it took: 7422.321
+Output variable: cl_area
+Best values: [0.9105263157894736, 913984.962406015]
+
+Final results
+-------------
+Output variable: cl_volume
+Training score:
+MSE: 762.563, R2: 0.594
+Validation score:
+MSE: 760.170, R2: 0.597
+
+Output variable: cl_area
+Training score:
+MSE: 338.909, R2: 0.803
+Validation score:
+MSE: 336.007, R2: 0.806
+

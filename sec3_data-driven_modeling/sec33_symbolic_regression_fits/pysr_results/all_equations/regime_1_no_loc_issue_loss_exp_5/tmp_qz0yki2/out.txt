@@ -1,0 +1,49 @@
+The search took 465.38 minutes.
+MSE on the validation data: 281.979
+Size of the subset: 5000
+Complexity of very low complexity ops: 3
+\usepackage{breqn}
+\usepackage{booktabs}
+
+...
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+Equation & Complexity & Loss & Score \\
+\midrule
+$y = 56.0$ & $1$ & $1.07 \cdot 10^{8}$ & $0.0$ \\
+$y = x_{3} + 55.9$ & $5$ & $1.02 \cdot 10^{8}$ & $0.0119$ \\
+$y = 15.7 x_{0} + 49.2$ & $9$ & $7.40 \cdot 10^{7}$ & $0.0794$ \\
+$y = 41.6 x_{2} + 41.6 x_{3} + 69.3$ & $13$ & $3.57 \cdot 10^{7}$ & $0.182$ \\
+$y = 32.2 x_{2} + 51.5 x_{3} + 68.9$ & $17$ & $3.39 \cdot 10^{7}$ & $0.0127$ \\
+$y = 100. \left(x_{2} + x_{3}\right)^{3} + 68.8$ & $19$ & $2.57 \cdot 10^{7}$ & $0.140$ \\
+$y = 80.1 - \frac{7.43}{x_{2} + x_{3} + 0.857}$ & $20$ & $1.94 \cdot 10^{7}$ & $0.280$ \\
+$y = 74.9 + \frac{x_{0} + x_{2} - 1.56}{x_{3} + 0.365}$ & $24$ & $1.60 \cdot 10^{7}$ & $0.0478$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = 77.9 + \frac{1.56 x_{0} + 1.56 x_{2} - 2.63}{x_{3} + 0.386} \end{dmath*} \end{minipage} & $28$ & $1.56 \cdot 10^{7}$ & $0.00690$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \frac{x_{0} - \frac{1.22}{x_{2} + 0.851}}{x_{3} + 0.375} + 76.0 \end{dmath*} \end{minipage} & $31$ & $1.27 \cdot 10^{7}$ & $0.0694$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = 16.2 x_{0} + \frac{x_{3}}{\left(x_{2} + 0.558\right) \left(x_{3} + 0.372\right)} + 66.2 \end{dmath*} \end{minipage} & $35$ & $1.14 \cdot 10^{7}$ & $0.0269$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = 16.2 x_{0} + \frac{x_{3}}{\left(x_{2} + 0.558\right) \left(x_{3} + 0.372\right)} + 66.2 \end{dmath*} \end{minipage} & $38$ & $1.14 \cdot 10^{7}$ & $1.70 \cdot 10^{-6}$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = 17.0 x_{0} - x_{1} + \frac{x_{3}}{\left(x_{2} + 0.552\right) \left(x_{3} + 0.374\right)} + 65.7 \end{dmath*} \end{minipage} & $39$ & $1.09 \cdot 10^{7}$ & $0.0403$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = 17.1 x_{0}^{3} + \frac{x_{3}}{\left(x_{2} + 0.544\right) \left(x_{3} + 0.373\right)} + 67.6 \end{dmath*} \end{minipage} & $41$ & $1.02 \cdot 10^{7}$ & $0.0354$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = 26.8 x_{0} - 10.4 x_{1} + \frac{x_{3}}{\left(x_{2} + 0.516\right) \left(x_{3} + 0.393\right)} + 60.7 \end{dmath*} \end{minipage} & $43$ & $8.90 \cdot 10^{6}$ & $0.0663$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = 26.8 x_{0} - 10.9 x_{1} + \frac{x_{3}}{\left(x_{2} + 0.503\right) \left(x_{3} + 0.401\right)} + 60.4 \end{dmath*} \end{minipage} & $46$ & $8.88 \cdot 10^{6}$ & $0.000925$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \frac{x_{3}}{\left(x_{2} + 0.506\right) \left(x_{3} + 0.394\right)} + 7.21 \left(x_{0} - 1.53\right) \left(x_{1} + 3.58\right) + 97.7 \end{dmath*} \end{minipage} & $47$ & $8.25 \cdot 10^{6}$ & $0.0733$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \frac{x_{3}}{\left(x_{2} + 0.507\right) \left(x_{3} + 0.394\right)} + 7.15 \left(x_{0} - 1.53\right) \left(x_{1} + 3.61\right) + 97.7 \end{dmath*} \end{minipage} & $50$ & $8.25 \cdot 10^{6}$ & $5.13 \cdot 10^{-6}$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \frac{x_{3}}{\left(x_{2} + 0.507\right) \left(x_{3} + 0.392\right)} - x_{4} + 7.27 \left(x_{0} - 1.52\right) \left(x_{1} + 3.61\right) + 97.7 \end{dmath*} \end{minipage} & $51$ & $8.12 \cdot 10^{6}$ & $0.0159$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \frac{x_{3}}{\left(x_{2} + 0.498\right) \left(x_{3} + 0.398\right)} - x_{4} + 7.39 \left(x_{0} - 1.62\right) \left(x_{1} + 3.67\right) + 101. \end{dmath*} \end{minipage} & $54$ & $8.09 \cdot 10^{6}$ & $0.00110$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} x_{4} + \frac{x_{3}}{\left(x_{2} + 0.507\right) \left(x_{3} + 0.393\right)} + 7.21 \left(x_{0} - 1.52\right) \left(x_{1} + 3.61\right) + 97.7 \end{dmath*} \end{minipage} & $55$ & $7.91 \cdot 10^{6}$ & $0.0228$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \frac{x_{3}}{\left(x_{2} + 0.511\right) \left(x_{3} + 0.383\right)} + 15.8 \left(x_{0} - 0.802\right) \left(x_{1} + 0.381 x_{4} + 1.91\right) + 77.2 \end{dmath*} \end{minipage} & $58$ & $6.67 \cdot 10^{6}$ & $0.0568$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{3} + \frac{x_{3}}{\left(x_{2} + 0.512\right) \left(x_{3} + 0.383\right)} + 16.0 \left(x_{0} - 0.803\right) \left(x_{1} + 0.382 x_{4} + 1.90\right) + 77.2 \end{dmath*} \end{minipage} & $62$ & $6.53 \cdot 10^{6}$ & $0.00543$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \frac{x_{3}}{\left(x_{2} + 0.507\right) \left(x_{3} + 0.387\right)} + x_{4} \cdot \left(6.01 x_{0} - 4.78\right) + 14.4 \left(x_{0} - 0.957\right) \left(x_{1} + 2.17\right) + 82.7 \end{dmath*} \end{minipage} & $66$ & $6.41 \cdot 10^{6}$ & $0.00471$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{3} + \frac{x_{3}}{\left(x_{2} + 0.508\right) \left(x_{3} + 0.387\right)} + x_{4} \cdot \left(6.01 x_{0} - 4.83\right) + 14.4 \left(x_{0} - 0.957\right) \left(x_{1} + 2.19\right) + 82.7 \end{dmath*} \end{minipage} & $70$ & $6.30 \cdot 10^{6}$ & $0.00396$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = 2 x_{3} + \frac{x_{3}}{\left(x_{2} + 0.508\right) \left(x_{3} + 0.387\right)} + x_{4} \cdot \left(6.01 x_{0} - 4.86\right) + 14.4 \left(x_{0} - 0.957\right) \left(x_{1} + 2.20\right) + 82.7 \end{dmath*} \end{minipage} & $74$ & $6.27 \cdot 10^{6}$ & $0.00141$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = 17.3 x_{0} - 17.3 x_{1} + 7.26 \left(x_{0} - 0.854\right) \left(x_{0} + x_{4} + 1.69\right) + 71.8 + \frac{x_{0} - 0.791 - \frac{0.170}{x_{2} + 0.469}}{x_{3} + 0.380} \end{dmath*} \end{minipage} & $77$ & $6.15 \cdot 10^{6}$ & $0.00672$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = 18.0 x_{0} - 18.0 x_{1} + 6.88 \left(x_{0} - 0.871\right) \left(1.46 x_{0} + x_{4} + 1.98\right) + 71.8 + \frac{x_{0} - 0.782 - \frac{0.158}{x_{2} + 0.464}}{x_{3} + 0.380} \end{dmath*} \end{minipage} & $81$ & $6.09 \cdot 10^{6}$ & $0.00240$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = 18.0 x_{0} - 18.0 x_{1} + x_{3} + 6.88 \left(x_{0} - 0.883\right) \left(1.48 x_{0} + x_{4} + 2.02\right) + 71.8 + \frac{x_{0} - 0.772 - \frac{0.158}{x_{2} + 0.464}}{x_{3} + 0.380} \end{dmath*} \end{minipage} & $85$ & $6.04 \cdot 10^{6}$ & $0.00181$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = 18.0 x_{0} - 18.0 x_{1} + x_{2} + x_{3} + 6.88 \left(x_{0} - 0.883\right) \left(1.53 x_{0} + x_{4} + 2.02\right) + 71.8 + \frac{x_{0} - 0.771 - \frac{0.158}{x_{2} + 0.464}}{x_{3} + 0.380} \end{dmath*} \end{minipage} & $89$ & $6.02 \cdot 10^{6}$ & $0.00104$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}

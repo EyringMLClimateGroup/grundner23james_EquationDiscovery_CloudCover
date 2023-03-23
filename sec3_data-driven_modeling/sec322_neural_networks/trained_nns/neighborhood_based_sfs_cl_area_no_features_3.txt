@@ -1,0 +1,38 @@
+How to use the model:
+model = tensorflow.keras.models.load_model(filename+'.h5')
+model.predict(scaled input data)
+
+Input/Output
+------------
+Input and output variables:
+['clw' 'cli' 'rh' 'cl_area']
+The (order of) input variables:
+['clw' 'cli' 'rh']
+
+Scaling
+-------
+Standard Scaler mean values:
+[2.25493498e-05 3.38180032e-06 6.02512234e-01]
+Standard Scaler standard deviation:
+[5.69702638e-05 1.01308124e-05 3.32494615e-01]
+=> Apply this standard scaling to (only) the input data before processing.
+
+Preprocessed data
+-----------------
+/home/b/b309170/my_work/icon-ml_data/cloud_cover_parameterization/neighborhood_based_SR_DYAMOND/cloud_cover_input_train_11.npy
+/home/b/b309170/my_work/icon-ml_data/cloud_cover_parameterization/neighborhood_based_SR_DYAMOND/cloud_cover_input_valid_11.npy
+/home/b/b309170/my_work/icon-ml_data/cloud_cover_parameterization/neighborhood_based_SR_DYAMOND/cloud_cover_output_train_11.npy
+/home/b/b309170/my_work/icon-ml_data/cloud_cover_parameterization/neighborhood_based_SR_DYAMOND/cloud_cover_output_valid_11.npy
+/home/b/b309170/my_work/icon-ml_data/cloud_cover_parameterization/neighborhood_based_SR_DYAMOND/cloud_cover_input_test_11.npy
+/home/b/b309170/my_work/icon-ml_data/cloud_cover_parameterization/neighborhood_based_SR_DYAMOND/cloud_cover_output_test_11.npy
+
+Model
+-----
+Results from the 2-th fold
+Training epochs: 25
+Weights restored from epoch: 17
+
+Unbounded training loss: 121.6390
+Unbounded validation loss: 120.2064
+Bounded training loss: 117.4778
+Bounded validation loss: 116.0488

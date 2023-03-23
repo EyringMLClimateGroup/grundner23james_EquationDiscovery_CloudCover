@@ -1,0 +1,109 @@
+Best possible MSEs per folder:
+==============================
+
+regime_1:
+tmp5t8dshps: 133/132
+tmp8qorw2c9: 136/135  
+tmp8zxyszzt: 125/124  
+tmpjou9bhz1: 139/138  
+tmpngrtyoof: 122/121
+tmpt_qvg5x1: 127/126
+
+regime_1_loss_exp_3:
+tmpejt8eumw: 113/112 <<
+tmpkr7b55x6: 125/123
+
+regime_1_loss_exp_4:
+tmprfg0piwa: 123/122  
+tmps4ka901a: 131/130
+
+regime_1_loss_exp_5:
+tmp404jpkr9: 139/138  
+tmpo7wmsgh7: 141/140
+
+regime_1_no_loc_issue_loss_exp_2:
+tmpatthsamd: 121/120 
+tmpw0h7p9s5: 106/105 <<
+
+regime_1_no_loc_issue_loss_exp_3:
+tmp6jn1vyyl: 114/113 <<
+tmprvv5f742: 116/115 <<
+
+regime_1_no_loc_issue_loss_exp_4:
+tmpkk7qgxs3: 119/119  
+tmpz68du_jh: 123/122
+
+regime_1_no_loc_issue_loss_exp_5:
+tmpajoqyzt_: 136/136 
+tmp_qz0yki2: 143/142
+
+regime_1_eight_features:
+tmp18ycsatf: 107/106 <<
+tmp1cqh8g1o: 110/109 <<
+tmp3r7tlb4o: 116/116  
+tmpq4ul97ca: 121/120  
+tmpyd4dlgze: 108/107 <<
+
+Best candidates:
+================
+tmpw0h7p9s5 
+- Equation 24 (106/105)
+-> Satisfies always: qc-, qi-constraint
+-> Satisfies sometimes: T-constraint
+-> RH-constraint is not satisfied for very large rh_z-values
+
+- Equation 22 (108/107)
+-> Satisfies always: RH-, qc-, qi-constraint
+-> Satisfies sometimes: T-constraint (not satisfied for warm and moist/cold and dry settings)
+-> Equations 18-21 are very similar (all better than (114/113))! 
+
+tmp6jn1vyyl
+- Equation 24 (115/114)
+-> Satisfies always: RH-, qc-, qi-constraint
+-> Satisfies sometimes: T-constraint
+
+tmp1cqh8g1o [Do they satisfy the RH-constraint?]
+52.34*x0 - 23.61*x1 + 23.61*(x1 + (x0 - 1.08)*(x0*(x0 + 1.43) - x4))^0.59 + 36.91 - 3.05/(x2 + x3 + 0.76)  [23|112/111]
+52.34*x0 - 23.61*x1 + 23.61*(x1 + (x0 - 1.08)*(x0*(x1 + x4 + 1.62) - x4))^0.51 + 36.91 - 3.05/(x2 + x3 + 0.76)  [24|110/109]
+--> I don't think they do
+
+tmpyd4dlgze
+- Equation 28 (108/107)
+-> 59.87*x0 + x4*(x1/(x2 + 0.53) + 2.26*x4*(x6 + x7 + 1.86)) - 3.06*(x1 - 0.49)/(x2 + 0.48) + 31.01 - 11.67/(x3/(x2 + 0.62) + 1.59)
+-> Satisfies RH-, qi-constraint
+-> But: Additional dependence on x6, x7
+-> Not suitable for Pareto Frontier
+
+Final choices/For the Pareto Frontier:
+======================================
+Only picked the ones that (seemingly) always satisfy the RH-constraint:
+- tmpw0h7p9s5, Eq. 19-22 (note that eq. 18 and 19 have the same structure)
+- tmp6jn1vyyl, Eq. 24
+
+--> 5 eqns in total. In the same order but with new names:
+
+EQ1: 37.8*x0 - 37.8*x1 + 16.54*x0*(x0 + x1**2) + 1.91*x4**2 + 49.57 - 2.66/(x2 + x3 + 0.76)
+EQ2: 36.2*x0 - 36.2*x1 + 16.54*x0*(x0 + x1**2) + x4**2*(1.19 - x0) + 50.89 - 2.74/(x2 + x3 + 0.76)
+EQ3: 36.56*x0 - 36.56*x1 + 16.01*x0*(x0 + x1**2) + x4**2*(-x0 + x2 + 1.23) + 50.38 - 2.59/(x2 + x3 + 0.76)
+EQ4: 36.69*x0 - 36.69*x1 + 16.48*x0*(x0 + x1**2) + x4**2*(0.21*x4 + 2.76) + 50.29 - 2.86/(x2 + x3 + 0.76)
+EQ5: 32.59*x0 - 16.3*x1 + (x0 - 0.89)*(x1 + 2.1)*(10.53*x1 + 4.05*x4 + 5.94) + x3 + 63.03 - 2.84/(x2 + x3 + 0.77)
+
+With free parameters:
+EQ1: a*x0 - b*x1 + c*x0*(d*x0 + x1**2) + e*x4**2 + f - g/(x2 + h*x3 + i)
+EQ2: a*x0 - b*x1 + c*x0*(d*x0 + x1**2) + x4**2*(-e*x0 + f) + g - h/(x2 + i*x3 + j)
+EQ3: a*x0 - b*x1 + c*x0*(d*x0 + x1**2) + x4**2*(-e*x0 + f*x2 + g) + h - i/(x2 + j*x3 + k)
+EQ4: a*x0 - b*x1 + c*x0*(d*x0 + x1**2) + x4**2*(e*x4 + f) + g - h/(x2 + i*x3 + j)
+EQ5: a*x0 - b*x1 + c*(x0 - d)*(e*x1 + f)*(g*x1 + h*x4 + i) + j*x3 + k - l/(x2 + m*x3 + n)
+
+An equation that incorporates all the above:
+EQC: a*x0 - b*x1 + c*(x0 - d)*(e*x1 + f)*(g*x1 + h*x4 + i) + j*x3 + k - l/(x2 + m*x3 + n) + o*x0**2 + x4**2*(-p*x0 + q*x2 + r)
+
+--> Now these parameters need to be tuned to the data!
+
+Complexity:
+EQ1: 9
+EQ2: 10
+EQ3: 11
+EQ4: 10
+EQ5: 14
+EQC: 18

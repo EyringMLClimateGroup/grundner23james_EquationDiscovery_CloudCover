@@ -1,0 +1,52 @@
+The search took 466.02 minutes.
+MSE on the validation data: 2617.578
+Size of the subset: 5000
+Complexity of very low complexity ops: 3
+\usepackage{breqn}
+\usepackage{booktabs}
+
+...
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+Equation & Complexity & Loss & Score \\
+\midrule
+$y = -0.620$ & $1$ & $123.$ & $0.0$ \\
+$y = - x_{0}$ & $4$ & $122.$ & $0.00109$ \\
+$y = - x_{0} - 0.123$ & $5$ & $122.$ & $0.000260$ \\
+$y = - 10.8 x_{2} - 278.$ & $9$ & $122.$ & $0.000443$ \\
+$y = \frac{0.0119}{x_{1} + 0.424}$ & $12$ & $122.$ & $0.000881$ \\
+$y = 0.00401 x_{0}^{3} - x_{0}$ & $15$ & $122.$ & $0.000218$ \\
+$y = - x_{0} + \frac{0.0119}{x_{1} + 0.424}$ & $16$ & $121.$ & $0.00280$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \left(-1.12 + \frac{0.0279}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $20$ & $121.$ & $9.62 \cdot 10^{-5}$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} x_{1} \cdot \left(0.237 - \frac{0.0819}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $24$ & $121.$ & $0.000229$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \cdot \left(0.325 x_{1} - 0.992 + \frac{0.0292}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $28$ & $121.$ & $0.000660$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \cdot \left(0.0758 x_{1}^{2} - 1.26 + \frac{0.0361}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $32$ & $121.$ & $0.000452$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(x_{0} + 0.135\right) \left(0.0659 x_{1}^{2} - 1.17 + \frac{0.0237}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $36$ & $121.$ & $0.000107$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = 0.178 x_{0} x_{1} \left(\frac{x_{1}}{x_{1} + 0.424} - \frac{1.11}{x_{1} + 0.476}\right) \end{dmath*} \end{minipage} & $39$ & $120.$ & $0.000908$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \left(- 0.0951 x_{2} - 1.42 + \frac{0.0875}{x_{1} + 0.476} + \frac{0.0285}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $43$ & $120.$ & $0.000209$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \cdot \left(0.0773 x_{1} \left(x_{1} - \frac{1.74}{x_{1} + 0.476}\right) - 1.03 + \frac{0.0368}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $47$ & $120.$ & $0.000646$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \cdot \left(0.101 x_{1} \left(x_{1} - 1.72 - \frac{1.84}{x_{1} + 0.476}\right) - 1.08 + \frac{0.0276}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $51$ & $120.$ & $8.88 \cdot 10^{-5}$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \cdot \left(0.0697 x_{1}^{2} - 1.08 + \frac{0.0911}{x_{1} + 0.476} + \frac{0.0291}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $55$ & $120.$ & $6.93 \cdot 10^{-6}$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \cdot \left(0.0697 x_{1}^{2} - 1.08 + \frac{0.0911}{x_{1} + 0.476} + \frac{0.0291}{x_{1} + 0.424}\right) - 0.139 \end{dmath*} \end{minipage} & $59$ & $120.$ & $8.93 \cdot 10^{-5}$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \cdot \left(0.0930 x_{1} \left(x_{1} + \frac{0.751}{x_{2} - 0.455} - \frac{0.848}{x_{1} + 0.475}\right) - 1.25 + \frac{0.0310}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $62$ & $119.$ & $0.000996$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \cdot \left(0.0663 x_{1}^{2} - 0.927 - \frac{0.0874}{x_{2} - 0.454} + \frac{0.0367}{x_{1} + 0.475} + \frac{0.0296}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $66$ & $119.$ & $0.000344$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \left(- 0.0662 x_{1} \left(- x_{1} + \frac{6.57}{- 7.00 x_{0} + x_{1}}\right) - 1.06 + \frac{0.0894}{x_{1} + 0.476} + \frac{0.0288}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $77$ & $119.$ & $0.000109$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \left(- 0.0750 x_{2} - 1.16 + \frac{0.106}{x_{1} - \left(0.424 - x_{0}\right) \left(x_{0} - 0.105\right) - 0.656} + \frac{0.0817}{x_{1} + 0.476} + \frac{0.0303}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $78$ & $119.$ & $0.000293$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \cdot \left(0.0674 x_{1}^{2} - 1.04 + \frac{0.103}{x_{1} - \left(0.424 - x_{0}\right) \left(x_{0} - 0.105\right) - 0.656} + \frac{0.0860}{x_{1} + 0.476} + \frac{0.0291}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $82$ & $119.$ & $0.000677$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \cdot \left(0.0678 x_{1}^{2} - 1.05 + \frac{0.104}{x_{1} - \left(0.424 - x_{0}\right) \left(x_{0} - 0.105\right) - 0.656} + \frac{0.0865}{x_{1} + 0.476} + \frac{0.0291}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $86$ & $119.$ & $1.41 \cdot 10^{-6}$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \left(- 0.0648 x_{2} - 0.978 + \frac{0.118}{x_{1} - \left(0.424 - x_{0}\right) \left(x_{0} - 0.105\right) - 0.656} - \frac{0.0860}{x_{2} - 0.454} + \frac{0.0291}{x_{1} + 0.424} - \frac{0.0757}{- x_{1} - 0.476}\right) \end{dmath*} \end{minipage} & $93$ & $118.$ & $0.000292$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \left(- 0.0698 x_{2} - 0.978 + \frac{0.118}{x_{1} - \left(0.424 - x_{0}\right) \left(x_{0} - 0.105\right) - 0.656} - \frac{0.0862}{x_{2} - 0.454} + \frac{0.0291}{x_{1} + 0.424} - \frac{0.0759}{- x_{1} - 0.476}\right) \end{dmath*} \end{minipage} & $97$ & $118.$ & $8.42 \cdot 10^{-6}$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \cdot \left(0.0642 x_{0} + 0.0642 x_{1} - 0.800 + \frac{0.114}{x_{1} - \left(0.424 - x_{0}\right) \left(x_{0} - 0.105\right) - 0.656} - \frac{0.0134}{- x_{0} + x_{2} + 0.424} - \frac{0.0843}{x_{2} - 0.454} + \frac{0.0296}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $105$ & $118.$ & $5.17 \cdot 10^{-6}$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \left(- 0.0660 x_{1} \left(- x_{1} + \frac{7.23}{- 7.00 x_{0} + x_{1}}\right) - 1.15 + \frac{0.117}{x_{1} - \left(0.424 - x_{0}\right) \left(x_{0} - 0.105\right) - 0.656} - \frac{0.0142}{- x_{0} + x_{2} + 0.424} + \frac{0.0301}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $108$ & $118.$ & $0.00101$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \left(- 0.0660 x_{1} \left(- x_{1} + \frac{7.23}{- 7.00 x_{0} + x_{1}}\right) - 1.13 + \frac{0.116}{x_{1} - \left(0.424 - x_{0}\right) \left(x_{0} - 0.105\right) - 0.656} - \frac{0.0135}{- x_{0} + x_{2} + 0.424} + \frac{0.0301}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $112$ & $118.$ & $8.13 \cdot 10^{-6}$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \left(- 0.0625 x_{1} \left(- x_{1} - 1.02 + \frac{7.23}{- 7.00 x_{0} + x_{1}}\right) - 1.17 + \frac{0.113}{x_{1} - \left(0.424 - x_{0}\right) \left(x_{0} - 0.105\right) - 0.656} - \frac{0.0133}{- x_{0} + x_{2} + 0.424} + \frac{0.0299}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $116$ & $118.$ & $2.95 \cdot 10^{-5}$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \left(- 0.0625 x_{1} \left(- x_{1} - 1.02 + \frac{7.23}{- 7.00 x_{0} + x_{1}}\right) - 1.17 + \frac{0.113}{x_{1} - \left(0.424 - x_{0}\right) \left(x_{0} - 0.105\right) - 0.656} - \frac{0.0133}{- x_{0} + x_{2} + 0.424} + \frac{0.0299}{x_{1} + 0.424}\right) - 0.161 \end{dmath*} \end{minipage} & $120$ & $118.$ & $0.000125$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \left(- \frac{0.131 x_{1}}{\left(- 7.00 x_{0} + x_{1}\right) \left(- x_{0} + x_{2} + 0.424\right)} - 0.0660 x_{2} - 0.957 + \frac{0.104}{x_{1} - \left(0.424 - x_{0}\right) \left(x_{0} - 0.105\right) - 0.656} - \frac{0.115}{x_{2} - 0.448} + \frac{0.0295}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $127$ & $118.$ & $0.000319$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = x_{0} \left(- 0.0569 x_{1} \left(- x_{1} + \frac{7.23}{- 7.00 x_{0} + x_{1}}\right) - 0.817 + \frac{0.120}{x_{1} - \left(0.424 - x_{0}\right) \left(x_{0} - 0.105\right) - 0.656} - \frac{0.0149}{- x_{0} + x_{2} + 0.424} - \frac{0.0983}{x_{2} - 0.452} + \frac{0.0310}{x_{1} + 0.424}\right) \end{dmath*} \end{minipage} & $131$ & $118.$ & $0.000472$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}

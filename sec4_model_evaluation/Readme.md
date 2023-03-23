@@ -1,0 +1,2 @@
+The **sec41_physical_constraints** subfolder contains the script that was used to analyze whether the physical constraints are satisfied in the data set.
+For this, we split the data cube into smaller cubes and fit the data with a linear model. It's slope informed us of the validity of a given physical constraint (e.g., whether cloud cover always increases with cloud ice) in the small cube.

@@ -1,0 +1,126 @@
+Model found: 101.057239+-12.231430*(exp((cos((x3--26.321000))p/(exp(x3)+x2))))
+The search took 1.06 minutes.
+MSE on the validation data: 219.561
+R2 on the validation data: 0.873
+Size of the subset: 10000
+
+Model found: 52.670752+-23.429144*(((sin(sqrt(x3))p/((x2+x3)+cos(x2)))+(sin((x1+119.675000))-exp(x0))))
+The search took 2.02 minutes.
+MSE on the validation data: 150.335
+R2 on the validation data: 0.913
+Size of the subset: 10000
+
+>> Picked
+>> Re-written: 52.6708 - 23.4291 (-e^x0 + sin(119.675 + x1) + (sin(sqrt(abs(x3))))/(x2 + x3 + cos(x2)))
+>> df/dx1 = -23.4291 cos(119.675 + x1)
+>> df/dx2 = -(23.4291 (-1 + sin(x2)) sin(sqrt(abs(x3))))/(x2 + x3 + cos(x2))^2
+>> df/dx3 = (23.4291 sin(sqrt(abs(x3))) - (11.7146 cos(sqrt(abs(x3))) (x2 + cos(x2) + x3))/sqrt(abs(x3)))/(x2 + cos(x2) + x3)^2
+
+Model found: 91.981695+-1.151419*(((exp((x3*-6.030000))+(exp(x3)+(x3+x1)))p/((exp(x3)+x2)p/(sqrt(-18.340000)-exp(x0)))))
+The search took 2.24 minutes.
+MSE on the validation data: 183.099
+R2 on the validation data: 0.894
+Size of the subset: 10000
+
+Model found: -1286.404990+18.837223*((((plog(x0)*(x1*x0))-((x1-71.491000)-(x0+x0)))+plog(sqrt((x2-x3)))))
+The search took 1.47 minutes.
+MSE on the validation data: 223.717
+R2 on the validation data: 0.871
+Size of the subset: 10000
+
+Model found: 1531.126265+2.537742*(((sqrt((12.963000+8.258000))p/((-60.464000p/67.584000)-(x3+x2)))-(sqrt((x1-89.990000))*((-49.968000--110.172000)-(x0-x1)))))
+The search took 1.29 minutes.
+MSE on the validation data: 171.609
+R2 on the validation data: 0.901
+Size of the subset: 10000
+
+>> Picked
+>> Re-written: 1531.13 + 2.53774 (-sqrt(abs(-89.99 + x1)) (60.204 - x0 + x1) + 4.60663/(-0.89465 - x2 - x3))
+>> df/dx1 = (151.98 + 1.26887 x0 - 3.80661 x1)/sqrt(abs(-89.99 + x1))
+>> df/dx2 = 11.6904/(-0.89465 - x2 - x3)^2
+>> df/dx3 = 11.6904/(-0.89465 - x2 - x3)^2
+
+Model found: 75.084989+12.596129*(((x0-exp(plog(x3)))+plog((exp(x3)+(x3+x2)))))
+The search took 1.13 minutes.
+MSE on the validation data: 211.336
+R2 on the validation data: 0.878
+Size of the subset: 10000
+
+Model found: 38.549169+17.085128*((cos(exp((x2p/x3)))-(sqrt(exp(x0))*(x1-(x0+x0)))))
+The search took 1.11 minutes.
+MSE on the validation data: nan
+R2 on the validation data: nan
+Size of the subset: 10000
+
+Model found: 90.403749+4545303594136523101634760674690781837784446694416449536.000000*(((exp((-130.156000-x3))p/((x3+x2)+cos(12.000000)))*(80.993000*(exp(x0)-(x1+7.700000)))))
+The search took 1.31 minutes.
+MSE on the validation data: 201.931
+R2 on the validation data: 0.883
+Size of the subset: 10000
+
+Model found: 35.025691+-40.808127*((cos((exp(x0)-sin(x1)))-sqrt(sin((x2-x3)))))
+The search took 1.60 minutes.
+MSE on the validation data: 213.005
+R2 on the validation data: 0.877
+Size of the subset: 10000
+
+Model found: 2152.581810+-19.451685*((((cos(x0)-(x0-x1))-((x0-107.646000)+(0.178000*x3)))-cos(plog((x2-x3)))))
+The search took 1.56 minutes.
+MSE on the validation data: 207.270
+R2 on the validation data: 0.880
+Size of the subset: 10000
+
+Model found: 94.774725+-5.055601*(((plog((x3--99.483000))-(exp(x0)-sin(x1)))p/exp(((x2+x3)+(x3+x2)))))
+The search took 1.72 minutes.
+MSE on the validation data: 215.897
+R2 on the validation data: 0.875
+Size of the subset: 10000
+
+Model found: 89.050502+-0.497555*(((((x1+x1)+(x1--24.734000))-exp(exp(x0)))p/(exp((x3+x3))+x2)))
+The search took 1.62 minutes.
+MSE on the validation data: 23718.256
+R2 on the validation data: -12.729
+Size of the subset: 10000
+
+Model found: 87.325925+-15.512616*((exp(((x3*-3.204000)+(x3-x2)))+((cos(x0)-(x0+x0))+x1)))
+The search took 1.58 minutes.
+MSE on the validation data: 210.847
+R2 on the validation data: 0.878
+Size of the subset: 10000
+
+Model found: 49.994120+13.435745*((plog((exp(x2)+(x3+x3)))-(x2-exp(x0))))
+The search took 1.03 minutes.
+MSE on the validation data: 179.242
+R2 on the validation data: 0.896
+Size of the subset: 10000
+
+>> Picked
+>> Re-written: 49.9941 + 13.4357 (e^x0 - x2 + log(e^x2 + 2 x3))
+>> df/dx1 = 0
+>> df/dx2 = -(26.8714 x3)/(e^x2 + 2 x3)
+>> df/dx3 = 26.8714/(e^x2 + 2 x3)
+
+Model found: 22.064829+-5.848630*(((sqrt((x3+-27.183000))*(sin(x1)-exp(x0)))-((cos(x0)+cos(x0))*plog((x3-x2)))))
+The search took 2.01 minutes.
+MSE on the validation data: 212.594
+R2 on the validation data: 0.877
+Size of the subset: 10000
+
+Model found: 21.116827+22.277850*((cos(plog((x3-x2)))-((sin(x1)-exp(x0))-((x3+x2)p/plog(154.409000)))))
+The search took 1.70 minutes.
+MSE on the validation data: 193.573
+R2 on the validation data: 0.888
+Size of the subset: 10000
+
+Model found: 91.387492+-1.776703*((((sqrt(81.713000)+(x1+x0))-(exp(x0)*exp(x0)))p/(x3+(exp(x2)*exp(x3)))))
+The search took 1.92 minutes.
+MSE on the validation data: 177.589
+R2 on the validation data: 0.897
+Size of the subset: 10000
+
+>> Picked
+>> Re-written: 91.3875 - (1.7767 (9.03952 - e^(2 x0) + x0 + x1))/(e^(x2 + x3) + x3)
+>> df/dx1 = -1.7767/(e^(x2 + x3) + x3)
+>> df/dx2 = (1.7767 e^(x2 + x3) (9.03952 - e^(2 x0) + x0 + x1))/(e^(x2 + x3) + x3)^2
+>> df/dx3 = (1.7767 (1 + e^(x2 + x3)) (9.03952 - e^(2 x0) + x0 + x1))/(e^(x2 + x3) + x3)^2
+>> Satisfies all constraints I think!

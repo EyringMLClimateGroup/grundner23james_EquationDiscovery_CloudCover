@@ -1,0 +1,580 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Evaluate the cross-validation models"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import matplotlib.pyplot as plt\n",
+    "import numpy as np\n",
+    "import os\n",
+    "import gc\n",
+    "\n",
+    "#Import sklearn before tensorflow (static Thread-local storage)\n",
+    "from sklearn.preprocessing import StandardScaler\n",
+    "\n",
+    "from tensorflow.keras.models import load_model\n",
+    "from tensorflow.keras import backend as K\n",
+    "from tensorflow.errors import ResourceExhaustedError\n",
+    "\n",
+    "# Add path with my_classes to sys.path\n",
+    "path_base = '/pf/b/b309170'\n",
+    "sys.path.insert(0, path_base + '/workspace_icon-ml/cloud_cover_parameterization/')\n",
+    "\n",
+    "import my_classes\n",
+    "from my_classes import write_infofile"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Paths\n",
+    "path_base = '/pf/b/b309170'\n",
+    "path_model = path_base + '/workspace_icon-ml/cloud_cover_parameterization/grid_column_based_QUBICC_R02B05/saved_models'\n",
+    "path_figures = path_base + '/workspace_icon-ml/cloud_cover_parameterization/grid_column_based_QUBICC_R02B05/figures'\n",
+    "path_data = path_base + '/my_work/icon-ml_data/cloud_cover_parameterization/grid_column_based_QUBICC_R02B05/based_on_var_interpolated_data'"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Load models"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Activation function for the last layer\n",
+    "def my_act_fct(x):\n",
+    "    return K.minimum(K.maximum(x, 0), 100)\n",
+    "\n",
+    "custom_objects = {}\n",
+    "custom_objects['my_act_fct'] = my_act_fct"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "fold_1 = 'cross_validation_column_based_fold_1.h5'\n",
+    "fold_2 = 'cross_validation_column_based_fold_2.h5'\n",
+    "fold_3 = 'cross_validation_column_based_fold_3.h5'\n",
+    "\n",
+    "model_fold_1 = load_model(os.path.join(path_model, fold_1), custom_objects)\n",
+    "model_fold_2 = load_model(os.path.join(path_model, fold_2), custom_objects)\n",
+    "model_fold_3 = load_model(os.path.join(path_model, fold_3), custom_objects)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Load data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "input_data = np.concatenate((np.load(path_data + '/cloud_cover_input_narval.npy'), \n",
+    "                             np.transpose(np.load(path_data + '/cloud_cover_input_qubicc.npy'))), axis=0)\n",
+    "output_data = np.concatenate((np.load(path_data + '/cloud_cover_output_narval.npy'), \n",
+    "                              np.transpose(np.load(path_data + '/cloud_cover_output_qubicc.npy'))), axis=0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "samples_narval = np.load(path_data + '/cloud_cover_output_narval.npy').shape[0]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "(samples_total, no_of_features) = input_data.shape"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Remove columns that were constant in at least one of the training folds"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "remove_fields = [27, 28, 29, 30, 31, 32, 135, 136, 137]\n",
+    "assert no_of_features == 163\n",
+    "input_data = np.delete(input_data, remove_fields, axis=1)\n",
+    "no_of_features = no_of_features - len(remove_fields)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Define cross-validation folds to recreate training and validation data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "training_folds = []\n",
+    "validation_folds = []\n",
+    "two_week_incr = samples_total//6\n",
+    "\n",
+    "for i in range(3):\n",
+    "    # Note that this is a temporal split since time was the first dimension in the original tensor\n",
+    "    first_incr = np.arange(samples_total//6*i, samples_total//6*(i+1))\n",
+    "    second_incr = np.arange(samples_total//6*(i+3), samples_total//6*(i+4))\n",
+    "\n",
+    "    validation_folds.append(np.append(first_incr, second_incr))\n",
+    "    training_folds.append(np.arange(samples_total))\n",
+    "    training_folds[i] = np.delete(training_folds[i], validation_folds[i])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### The data will need to be scaled according to the training folds"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "scaler = StandardScaler()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Useful functions to plot results"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def mean_clc_per_vertical_layer(model, input_data, output_data, batch_size=2**20):\n",
+    "    '''\n",
+    "        Model prediction and the Ground Truth\n",
+    "    '''\n",
+    "    # Cloud cover means for first model\n",
+    "    clc_data_mean = []\n",
+    "    for i in range(27):\n",
+    "        clc_data_mean.append(np.mean(output_data[:, i], dtype=np.float64))\n",
+    "    # Predicted cloud cover means\n",
+    "#     # The batch predicting makes things faster, however, it can run into oom problems\n",
+    "#     # Start with a large batch size and decrease it until it works\n",
+    "#     for j in range(3):\n",
+    "#         try:\n",
+    "#             pred_adj = np.minimum(np.maximum(model.predict(input_valid, batch_size=batch_size//(8**j)), 0), 100)\n",
+    "#             break\n",
+    "#         except(ResourceExhaustedError):\n",
+    "#             K.clear_session()\n",
+    "#             gc.collect()\n",
+    "#             print('Model predict did not work with a batch size of %d'%(batch_size//(8**j)))\n",
+    "\n",
+    "    # Curiously it works best if we use predict_on_batch on small subsets of the data instead of predict(..., batch_size=...) \n",
+    "    # In future correct to: for i in range(1 + input_data.shape[0]//batch_size):\n",
+    "    for i in range(input_data.shape[0]//batch_size): \n",
+    "        if i == 0:\n",
+    "            a = model.predict_on_batch(input_data[i*batch_size:(i+1)*batch_size])\n",
+    "        else:\n",
+    "            a = np.concatenate((a, model.predict_on_batch(input_data[i*batch_size:(i+1)*batch_size])), axis=0)\n",
+    "        K.clear_session()\n",
+    "        gc.collect()\n",
+    "        \n",
+    "    pred_adj = np.minimum(np.maximum(a, 0), 100) \n",
+    "    \n",
+    "    return list(np.mean(pred_adj, axis=0, dtype=np.float64)), clc_data_mean"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def save_figure(fig_name, fig_title, model_predictions, valid_means=None):\n",
+    "    '''\n",
+    "        Note that this figure truly is a different performance measure than the validation error.\n",
+    "        The reason is that the mean can in principle be good even when the model is really bad.\n",
+    "        \n",
+    "        model_predictions: Array of length 3, covers predictions from all three folds for a given TL setup\n",
+    "        valid_means: Array of length 3, covers validation means from all three folds for a given TL setup\n",
+    "    '''\n",
+    "#     assert len(model_biases) == 3\n",
+    "    \n",
+    "    # Vertical layers\n",
+    "    a = np.linspace(5, 31, 27)\n",
+    "    fig = plt.figure(figsize=(11,7))\n",
+    "    # For model\n",
+    "    ax = fig.add_subplot(111, xlabel='Mean Cloud Cover', ylabel='Vertical layer', title=fig_title)\n",
+    "    if not valid_means[0] == valid_means[1] == valid_means[2]:\n",
+    "        colors = ['g', 'b', 'r']\n",
+    "        for i in range(len(model_predictions)):\n",
+    "            ax.plot(model_predictions[i], a, colors[i])\n",
+    "            if valid_means != None:\n",
+    "                ax.plot(valid_means[i], a, '%s--'%colors[i])\n",
+    "        plt.gca().invert_yaxis()\n",
+    "        ax.legend(['Model Fold 1 Predictions', 'Fold 1 Truth', 'Model Fold 2 Predictions', 'Fold 2 Truth', \n",
+    "                   'Model Fold 3 Predictions', 'Fold 3 Truth'])\n",
+    "    else:\n",
+    "        for i in range(len(model_predictions)):\n",
+    "            ax.plot(model_predictions[i], a)\n",
+    "        ax.plot(valid_means[0], a, 'black')\n",
+    "        plt.gca().invert_yaxis()\n",
+    "        ax.legend(['Model Fold 1 Predictions', 'Model Fold 2 Predictions', 'Model Fold 3 Predictions', 'Truth'])\n",
+    "\n",
+    "    fig.savefig(os.path.join(path_figures, fig_name+'.pdf'))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Evaluate the models on the data\n",
+    "\n",
+    "Add training and validation losses to the text files. <br>\n",
+    "Print results per vertical layer (respective validation set/NARVAL/QUBICC)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [],
+   "source": [
+    "train_losses = [] ; valid_losses = [] ; valid_means = [] ; valid_model_predictions = [] ;\n",
+    "narval_means = [] ; narval_model_predictions = [] ; qubicc_means = [] ; qubicc_model_predictions = [] ;\n",
+    "qubicc_month_0 = [] ; qubicc_model_pred_month_0 = [] ; qubicc_month_1 = [] ; qubicc_model_pred_month_1 = [] ;\n",
+    "qubicc_month_2 = [] ; qubicc_model_pred_month_2 = [] ;\n",
+    "\n",
+    "for i in range(3): \n",
+    "    filename = 'cross_validation_column_based_fold_%d'%(i+1)\n",
+    "    # Choose appropriate model for this fold\n",
+    "    if i == 0: model = model_fold_1\n",
+    "    if i == 1: model = model_fold_2\n",
+    "    if i == 2: model = model_fold_3\n",
+    "    \n",
+    "    #Standardize according to the fold\n",
+    "    scaler.fit(input_data[training_folds[i]])\n",
+    "    \n",
+    "    #Load the data for the respective fold\n",
+    "    input_train = scaler.transform(input_data[training_folds[i]])\n",
+    "    input_valid = scaler.transform(input_data[validation_folds[i]])\n",
+    "    output_train = output_data[training_folds[i]]\n",
+    "    output_valid = output_data[validation_folds[i]]\n",
+    "    \n",
+    "    ## Training and validation losses\n",
+    "    train_loss = model.evaluate(input_train, output_train, verbose=2, batch_size=10**5)\n",
+    "    valid_loss = model.evaluate(input_valid, output_valid, verbose=2, batch_size=10**5)\n",
+    "    \n",
+    "    # Clear up some memory\n",
+    "    del input_train, output_train\n",
+    "    gc.collect()\n",
+    "    \n",
+    "    train_losses.append(train_loss)\n",
+    "    valid_losses.append(valid_loss)\n",
+    "    \n",
+    "    with open(os.path.join(path_model, filename+'.txt'), 'a') as file:\n",
+    "        file.write('Unbounded training loss: %.4f\\n'%(train_loss))\n",
+    "        file.write('Unbounded validation loss: %.4f\\n'%(valid_loss))\n",
+    "        \n",
+    "    ## Compute mean cloud cover per vertical layer\n",
+    "    # On the respective validation sets (QUBICC and NARVAL)\n",
+    "    try:\n",
+    "        clc_pred_mean, clc_data_mean = mean_clc_per_vertical_layer(model, input_valid, output_valid)\n",
+    "    except(ResourceExhaustedError):\n",
+    "        print('Resource Exhausted Qubicc')\n",
+    "        clc_pred_mean, clc_data_mean = mean_clc_per_vertical_layer(model, input_valid, output_valid, \n",
+    "                                                                   batch_size=2**15)\n",
+    "    valid_means.append(clc_data_mean)\n",
+    "    valid_model_predictions.append(clc_pred_mean)\n",
+    "    \n",
+    "    # Clear up some memory\n",
+    "    del input_valid, output_valid\n",
+    "    gc.collect()\n",
+    "    \n",
+    "    # For NARVAL\n",
+    "    input_narval = scaler.transform(input_data[:samples_narval])\n",
+    "    output_narval = output_data[:samples_narval]\n",
+    "    try:\n",
+    "        clc_pred_mean, clc_data_mean = mean_clc_per_vertical_layer(model, input_narval, output_narval)\n",
+    "    except(ResourceExhaustedError):\n",
+    "        print('Resource Exhausted Narval')\n",
+    "        clc_pred_mean, clc_data_mean = mean_clc_per_vertical_layer(model, input_narval, output_narval, \n",
+    "                                                                   batch_size=2**15)\n",
+    "    narval_means.append(clc_data_mean)\n",
+    "    narval_model_predictions.append(clc_pred_mean)\n",
+    "    \n",
+    "    # Clear up some memory\n",
+    "    del input_narval, output_narval\n",
+    "    gc.collect()\n",
+    "    \n",
+    "    # For QUBICC  \n",
+    "    input_qubicc = scaler.transform(input_data[samples_narval:])\n",
+    "    output_qubicc = output_data[samples_narval:]\n",
+    "    try:\n",
+    "        clc_pred_mean, clc_data_mean = mean_clc_per_vertical_layer(model, input_qubicc, output_qubicc)\n",
+    "    except(ResourceExhaustedError):\n",
+    "        print('Resource Exhausted Qubicc')\n",
+    "        clc_pred_mean, clc_data_mean = mean_clc_per_vertical_layer(model, input_qubicc, output_qubicc, \n",
+    "                                                                   batch_size=2**15)\n",
+    "    qubicc_means.append(clc_data_mean)\n",
+    "    qubicc_model_predictions.append(clc_pred_mean)\n",
+    "    \n",
+    "    # Clear up some memory\n",
+    "    del input_qubicc, output_qubicc\n",
+    "    gc.collect()\n",
+    "    \n",
+    "    # QUBICC months\n",
+    "    qubicc_month = (samples_total - samples_narval)//3\n",
+    "    for month in range(3):\n",
+    "        first_ind = samples_narval + month*qubicc_month\n",
+    "        last_ind = samples_narval + (month+1)*qubicc_month\n",
+    "        input_qubicc = scaler.transform(input_data[first_ind:last_ind])\n",
+    "        output_qubicc = output_data[first_ind:last_ind]\n",
+    "        try:\n",
+    "            clc_pred_mean, clc_data_mean = mean_clc_per_vertical_layer(model, input_qubicc, output_qubicc)\n",
+    "        except(ResourceExhaustedError):\n",
+    "            print('Resource Exhausted Qubicc')\n",
+    "            clc_pred_mean, clc_data_mean = mean_clc_per_vertical_layer(model, input_qubicc, output_qubicc, \n",
+    "                                                                       batch_size=2**15)\n",
+    "        if month==0: \n",
+    "            qubicc_month_0.append(clc_data_mean)\n",
+    "            qubicc_model_pred_month_0.append(clc_pred_mean)\n",
+    "        if month==1:\n",
+    "            qubicc_month_1.append(clc_data_mean)\n",
+    "            qubicc_model_pred_month_1.append(clc_pred_mean)\n",
+    "        if month==2:\n",
+    "            qubicc_month_2.append(clc_data_mean)\n",
+    "            qubicc_model_pred_month_2.append(clc_pred_mean)\n",
+    "\n",
+    "    # Clear up some memory\n",
+    "    del input_qubicc, output_qubicc\n",
+    "    gc.collect()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# # Plot results\n",
+    "save_figure('cross_validation_validation_means', 'Column-based models on the respective validation sets', \n",
+    "            valid_model_predictions, valid_means)\n",
+    "save_figure('cross_validation_narval', 'Column-based models on the NARVAL data', \n",
+    "            narval_model_predictions, narval_means)\n",
+    "save_figure('cross_validation_qubicc', 'Column-based models on the QUBICC data', \n",
+    "            qubicc_model_predictions, qubicc_means)\n",
+    "# Qubicc months (I checked below that the order is hc2, then hc3, then hc4.)\n",
+    "save_figure('cross_validation_qubicc_hc2', 'Column-based models on the QUBICC data, November 2004', \n",
+    "            qubicc_model_pred_month_0, qubicc_month_0)\n",
+    "save_figure('cross_validation_qubicc_hc3', 'Column-based models on the QUBICC data, April 2005', \n",
+    "            qubicc_model_pred_month_1, qubicc_month_1)\n",
+    "save_figure('cross_validation_qubicc_hc4', 'Column-based models on the QUBICC data, November 2005', \n",
+    "            qubicc_model_pred_month_2, qubicc_month_2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# In case we want to reproduce the plots without running everything again:\n",
+    "print('On validation sets')\n",
+    "print(valid_means)\n",
+    "print(valid_model_predictions)\n",
+    "print('NARVAL data')\n",
+    "print(narval_means)\n",
+    "print(narval_model_predictions)\n",
+    "print('Qubicc data')\n",
+    "print(qubicc_means)\n",
+    "print(qubicc_model_predictions)\n",
+    "print('Qubicc data, November 2004')\n",
+    "print(qubicc_month_0)\n",
+    "print(qubicc_model_pred_month_0)\n",
+    "print('Qubicc data, April 2005')\n",
+    "print(qubicc_month_1)\n",
+    "print(qubicc_model_pred_month_1)\n",
+    "print('Qubicc data, November 2005')\n",
+    "print(qubicc_month_2)\n",
+    "print(qubicc_model_pred_month_2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# The QUBICC data is loaded in the order that I would expect (hc2, then hc3, then hc4)\n",
+    "\n",
+    "# path = '/pf/b/b309170/my_work/QUBICC/data_var_vertinterp_R02B05/'\n",
+    "# resolution = 'R02B05'\n",
+    "\n",
+    "# # Order of experiments\n",
+    "# DS = xr.open_mfdataset(path+'hus/*'+resolution+'.nc', combine='by_coords')\n",
+    "# print(DS.time[0*len(DS.time)//3])\n",
+    "# print(DS.time[1*len(DS.time)//3])\n",
+    "# print(DS.time[2*len(DS.time)//3])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Compute bounded losses\n",
+    "\n",
+    "We also save the scaling parameters for the fold-based models as we haven't done that yet."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def compute_bounded_loss(model, input_data, output_data, batch_size=2**20):\n",
+    "    for i in range(input_data.shape[0]//batch_size): \n",
+    "        if i == 0:\n",
+    "            a = model.predict_on_batch(input_data[i*batch_size:(i+1)*batch_size])\n",
+    "        else:\n",
+    "            a = np.concatenate((a, model.predict_on_batch(input_data[i*batch_size:(i+1)*batch_size])), axis=0)\n",
+    "        K.clear_session()\n",
+    "        gc.collect()\n",
+    "        \n",
+    "    pred_adj = np.minimum(np.maximum(a, 0), 100)\n",
+    "    \n",
+    "    # Mean Squared Error\n",
+    "    return np.mean((pred_adj - output_data)**2, dtype=np.float64)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "seed = 10\n",
+    "\n",
+    "for i in range(3): \n",
+    "    filename = 'cross_validation_column_based_fold_%d'%(i+1)\n",
+    "    # Choose appropriate model for this fold\n",
+    "    if i == 0: model = model_fold_1\n",
+    "    if i == 1: model = model_fold_2\n",
+    "    if i == 2: model = model_fold_3\n",
+    "        \n",
+    "    #Standardize according to the fold\n",
+    "    scaler.fit(input_data[training_folds[i]])\n",
+    "    \n",
+    "    # We save the scaling parameters in a file [only once]\n",
+    "    with open(path_model+'/scaler_%d.txt'%seed, 'a') as file:\n",
+    "        file.write('Standard Scaler mean values:\\n')\n",
+    "        file.write(str(scaler.mean_))\n",
+    "        file.write('\\nStandard Scaler standard deviation:\\n')\n",
+    "        file.write(str(np.sqrt(scaler.var_)))\n",
+    "        \n",
+    "    # Define remove_fields\n",
+    "    remove_fields = [27, 28, 29, 30, 31, 32, 135, 136, 137]\n",
+    "\n",
+    "    # Taken from preprocessing_narval\n",
+    "    in_and_out_variables = np.array(['qv_4', 'qv_5', 'qv_6', 'qv_7', 'qv_8', 'qv_9', 'qv_10', 'qv_11', 'qv_12', 'qv_13', 'qv_14', 'qv_15', 'qv_16', 'qv_17', 'qv_18', 'qv_19', 'qv_20', 'qv_21', 'qv_22', 'qv_23', 'qv_24', 'qv_25', 'qv_26', 'qv_27', 'qv_28', 'qv_29', 'qv_30', 'qc_4', 'qc_5', 'qc_6', 'qc_7', 'qc_8', 'qc_9', 'qc_10', 'qc_11', 'qc_12', 'qc_13', 'qc_14', 'qc_15', 'qc_16', 'qc_17', 'qc_18', 'qc_19', 'qc_20', 'qc_21', 'qc_22', 'qc_23', 'qc_24', 'qc_25', 'qc_26', 'qc_27', 'qc_28', 'qc_29', 'qc_30', 'qi_4', 'qi_5', 'qi_6', 'qi_7', 'qi_8', 'qi_9', 'qi_10', 'qi_11', 'qi_12', 'qi_13', 'qi_14', 'qi_15', 'qi_16', 'qi_17', 'qi_18', 'qi_19', 'qi_20', 'qi_21', 'qi_22', 'qi_23', 'qi_24', 'qi_25', 'qi_26', 'qi_27', 'qi_28', 'qi_29', 'qi_30', 'temp_4', 'temp_5', 'temp_6', 'temp_7', 'temp_8', 'temp_9', 'temp_10', 'temp_11', 'temp_12', 'temp_13', 'temp_14', 'temp_15', 'temp_16', 'temp_17', 'temp_18', 'temp_19', 'temp_20', 'temp_21', 'temp_22', 'temp_23', 'temp_24', 'temp_25', 'temp_26', 'temp_27', 'temp_28', 'temp_29', 'temp_30', 'pres_4', 'pres_5', 'pres_6', 'pres_7', 'pres_8', 'pres_9', 'pres_10', 'pres_11', 'pres_12', 'pres_13', 'pres_14', 'pres_15', 'pres_16', 'pres_17', 'pres_18', 'pres_19', 'pres_20', 'pres_21', 'pres_22', 'pres_23', 'pres_24', 'pres_25', 'pres_26', 'pres_27', 'pres_28', 'pres_29', 'pres_30', 'zg_4', 'zg_5', 'zg_6', 'zg_7', 'zg_8', 'zg_9', 'zg_10', 'zg_11', 'zg_12', 'zg_13', 'zg_14', 'zg_15', 'zg_16', 'zg_17', 'zg_18', 'zg_19', 'zg_20', 'zg_21', 'zg_22', 'zg_23', 'zg_24', 'zg_25', 'zg_26', 'zg_27', 'zg_28', 'zg_29', 'zg_30', 'fr_land', 'clc_4', 'clc_5', 'clc_6', 'clc_7', 'clc_8', 'clc_9', 'clc_10', 'clc_11', 'clc_12', 'clc_13', 'clc_14', 'clc_15', 'clc_16', 'clc_17', 'clc_18', 'clc_19', 'clc_20', 'clc_21', 'clc_22', 'clc_23', 'clc_24', 'clc_25', 'clc_26', 'clc_27', 'clc_28', 'clc_29', 'clc_30'])\n",
+    "    input_variables = np.array(['qv_4', 'qv_5', 'qv_6', 'qv_7', 'qv_8', 'qv_9', 'qv_10', 'qv_11', 'qv_12', 'qv_13', 'qv_14', 'qv_15', 'qv_16', 'qv_17', 'qv_18', 'qv_19', 'qv_20', 'qv_21', 'qv_22', 'qv_23', 'qv_24', 'qv_25', 'qv_26', 'qv_27', 'qv_28', 'qv_29', 'qv_30', 'qc_4', 'qc_5', 'qc_6', 'qc_7', 'qc_8', 'qc_9', 'qc_10', 'qc_11', 'qc_12', 'qc_13', 'qc_14', 'qc_15', 'qc_16', 'qc_17', 'qc_18', 'qc_19', 'qc_20', 'qc_21', 'qc_22', 'qc_23', 'qc_24', 'qc_25', 'qc_26', 'qc_27', 'qc_28', 'qc_29', 'qc_30', 'qi_4', 'qi_5', 'qi_6', 'qi_7', 'qi_8', 'qi_9', 'qi_10', 'qi_11', 'qi_12', 'qi_13', 'qi_14', 'qi_15', 'qi_16', 'qi_17', 'qi_18', 'qi_19', 'qi_20', 'qi_21', 'qi_22', 'qi_23', 'qi_24', 'qi_25', 'qi_26', 'qi_27', 'qi_28', 'qi_29', 'qi_30', 'temp_4', 'temp_5', 'temp_6', 'temp_7', 'temp_8', 'temp_9', 'temp_10', 'temp_11', 'temp_12', 'temp_13', 'temp_14', 'temp_15', 'temp_16', 'temp_17', 'temp_18', 'temp_19', 'temp_20', 'temp_21', 'temp_22', 'temp_23', 'temp_24', 'temp_25', 'temp_26', 'temp_27', 'temp_28', 'temp_29', 'temp_30', 'pres_4', 'pres_5', 'pres_6', 'pres_7', 'pres_8', 'pres_9', 'pres_10', 'pres_11', 'pres_12', 'pres_13', 'pres_14', 'pres_15', 'pres_16', 'pres_17', 'pres_18', 'pres_19', 'pres_20', 'pres_21', 'pres_22', 'pres_23', 'pres_24', 'pres_25', 'pres_26', 'pres_27', 'pres_28', 'pres_29', 'pres_30', 'zg_4', 'zg_5', 'zg_6', 'zg_7', 'zg_8', 'zg_9', 'zg_10', 'zg_11', 'zg_12', 'zg_13', 'zg_14', 'zg_15', 'zg_16', 'zg_17', 'zg_18', 'zg_19', 'zg_20', 'zg_21', 'zg_22', 'zg_23', 'zg_24', 'zg_25', 'zg_26', 'zg_27', 'zg_28', 'zg_29', 'zg_30', 'fr_land'])\n",
+    "\n",
+    "    in_and_out_variables = np.delete(in_and_out_variables, remove_fields)\n",
+    "    input_variables = np.delete(input_variables, remove_fields)\n",
+    "\n",
+    "    # Write the accompanying info-file [only once]\n",
+    "    with open(os.path.join(path_model, filename + '.txt'), 'a') as file:\n",
+    "        write_infofile(file, str(in_and_out_variables), str(input_variables), path_model, path_data, seed)\n",
+    "    \n",
+    "    #Load the data for the respective fold\n",
+    "    input_train = scaler.transform(input_data[training_folds[i]])\n",
+    "    input_valid = scaler.transform(input_data[validation_folds[i]])\n",
+    "    output_train = output_data[training_folds[i]]\n",
+    "    output_valid = output_data[validation_folds[i]]\n",
+    "    \n",
+    "    train_loss = compute_bounded_loss(model, input_train, output_train, batch_size=2**15)\n",
+    "    valid_loss = compute_bounded_loss(model, input_valid, output_valid, batch_size=2**15)\n",
+    "        \n",
+    "    with open(os.path.join(path_model, filename+'.txt'), 'a') as file:\n",
+    "        file.write('Bounded training loss: %.4f\\n'%(train_loss))\n",
+    "        file.write('Bounded validation loss: %.4f\\n'%(valid_loss))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "clouds113_kernel",
+   "language": "python",
+   "name": "clouds113_kernel"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.10"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

@@ -1,0 +1,1 @@
+{"Order of parameters": "rsat, r0_top, r0_surf, n", "Best params land": "[0.97452664, 0.050412893, 0.3956866, 1.3120817]", "Best params sea": "[0.968738, 0.021110874, 0.76846963, 1.7697319]", "Training MSE": 812.3587509057276, "Land MSE": 959.7147800621087, "Sea MSE": 766.0815651517654, "Validation MSE": 812.7246903269355}

@@ -1,0 +1,29 @@
+Round one: Grid spacing = 0.08
+------------------------------
+Time it took to get through land: 5092.749
+Output variable: cl_area
+Best values for the land part: [0.9, 0.2, 0.6, 2.119999999999999]
+Time it took to get through land: 5113.041
+Output variable: cl_volume
+Best values for the land part: [0.98, 0.2, 0.6, 2.119999999999999]
+Time it took to get through the sea: 15995.547
+Output variable: cl_volume
+Best values for the sea part: [0.98, 0.2, 0.8399999999999999, 2.119999999999999]
+Time it took to get through the sea: 16386.595
+Output variable: cl_area
+Best values for the sea part: [0.98, 0.2, 0.6, 2.119999999999999]
+
+Round two: Grid spacing = 0.05
+------------------------------
+Time it took to get through land: 2461.809
+Output variable: cl_volume
+Best values for the land part: [0.9500000000000001, 0.16000000000000003, 0.5, 2.12]
+Time it took to get through land: 2475.804
+Output variable: cl_area
+Best values for the land part: [0.9000000000000001, 0.01, 0.55, 2.12]
+Time it took to get through the sea: 6013.418
+Output variable: cl_volume
+Best values for the sea part: [0.9500000000000001, 0.11, 0.9000000000000001, 2.12]
+Time it took to get through the sea: 7795.223
+Output variable: cl_area
+Best values for the sea part: [0.9500000000000001, 0.01, 0.55, 2.12]
