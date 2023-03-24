@@ -29,7 +29,7 @@ To reproduce the results it is first necessary to coarse-grain and preprocess th
 
 It suffices to coarse-grain the variables: clc/cc, cli/ciwc, clw/clwc, hus/q, pa, ta/t, ua/u, va/v, zg/z
 
-## Some Key Python Packages
+## Dependencies
 
 - PySR 0.10.1 [https://github.com/MilesCranmer/PySR]
 - GP-GOMEA [https://github.com/marcovirgolin/GP-GOMEA]
