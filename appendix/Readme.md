@@ -1,0 +1,1 @@
+Plotting the I1, I2, I3-terms on a specific vertical layer on ~1490m averaged over 10 days of DYAMOND data.
