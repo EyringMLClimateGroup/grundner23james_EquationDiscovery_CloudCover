@@ -7,20 +7,20 @@ Author: Arthur Grundner, [arthur.grundner@dlr.de](mailto:arthur.grundner@dlr.de)
 
 ## List of Figures
 
-- [Fig 1] Comparison of the coarse-grained DYAMOND and ERA5 data: [sec2_data/analyze_data.ipynb](sec2_data/analyze_data.ipynb)
-- All cloud cover schemes in a performance x complexity plot: [Fig 2](sec5_results/sec512_balancing_performance_and_complexity/performance_vs_complexity_logscale_pysr_fixed.pdf)
+- [Fig 1](sec2_data/analyze_data.ipynb) Comparison of the coarse-grained DYAMOND and ERA5 data
+- [Fig 2](sec5_results/sec512_balancing_performance_and_complexity/performance_vs_complexity_logscale_pysr_fixed.pdf): All cloud cover schemes in a performance x complexity plot: 
 - [Fig 3](sec5_results/sec52_split_by_cloud_regimes/distributions_selected_schemes_pd.pdf): Predicted cloud cover distributions
-- [Fig 4.1] Transfer learning to ERA5 data (selected schemes): sec5_results/sec53_transferability_to_era5/era5_1979-2021/tf_main_scatter.pdf
-- [Fig 4.2] Transfer learning to ERA5 data (polynomials & NNs): sec5_results/sec53_transferability_to_era5/era5_1979-2021/tf_add_scatter.pdf
-- [Fig 5.1]: Plots of the terms I_1, I_2, I_3: sec6_physical_interpretation/I1_I2_I3.pdf
-- [Fig 5.2]: Conditional average w.r.t. RH and T: sec6_physical_interpretation/rh_and_T_vs_cl_area.pdf
-- [Fig 5.3]: Conditional average w.r.t. dzRH: sec6_physical_interpretation/rh_z_vs_cl_area_new.pdf
-- [Fig 6.1]: Contour plot of dzRH: sec6_physical_interpretation/derivative_of_f_wrt_rh.pdf
-- [Fig 6.2]: Cloud cover w.r.t. RH with and without modification to satisfy the RH-physical constraint: sec6_physical_interpretation/RH_vs_cl_area_mod.pdf
-- [Fig 7]: Ablation study of our analytic scheme on DYAMOND and ERA5 data: sec6_physical_interpretation/ablation_study_dyamond/dyamond_era5_ablation_study_results.pdf
-- [Fig A1]: Maps of I1, I2, I3 on a specific vertical layer on ~1490m averaged over 10 days of DYAMOND data: appendix/I\[1,2,3\]_lv_41_20160811-0820_timmean.pdf
+- [Fig 4.1](sec5_results/sec53_transferability_to_era5/era5_1979-2021/tf_main_scatter.pdf) Transfer learning to ERA5 data (selected schemes)
+- [Fig 4.2](sec5_results/sec53_transferability_to_era5/era5_1979-2021/tf_add_scatter.pdf) Transfer learning to ERA5 data (polynomials & NNs)
+- [Fig 5.1](sec6_physical_interpretation/I1_I2_I3.pdf): Plots of the terms I_1, I_2, I_3
+- [Fig 5.2](sec6_physical_interpretation/rh_and_T_vs_cl_area.pdf): Conditional average w.r.t. RH and T
+- [Fig 5.3](sec6_physical_interpretation/rh_z_vs_cl_area_new.pdf): Conditional average w.r.t. dzRH
+- [Fig 6.1](sec6_physical_interpretation/derivative_of_f_wrt_rh.pdf): Contour plot of dzRH
+- [Fig 6.2](sec6_physical_interpretation/RH_vs_cl_area_mod.pdf): Cloud cover w.r.t. RH with and without modification to satisfy the RH-physical constraint
+- [Fig 7](sec6_physical_interpretation/ablation_study_dyamond/dyamond_era5_ablation_study_results.pdf): Ablation study of our analytic scheme on DYAMOND and ERA5 data
+- [Fig A1.1](appendix/I1_lv_41_20160811-0820_timmean.pdf), [Fig A1.2](appendix/I2_lv_41_20160811-0820_timmean.pdf), [Fig A1.3](appendix/I3_lv_41_20160811-0820_timmean.pdf): Maps of I1, I2, I3 on a specific vertical layer on ~1490m averaged over 10 days of DYAMOND data
 
-The scripts to generate these figures can be found in the same folders.
+The scripts to generate these figures can be found in the same folders as the figures.
 
 ## Data
 
