@@ -5,8 +5,6 @@ A hierarchical modeling framework to discover new machine learning-based equatio
 
 Author: Arthur Grundner, [arthur.grundner@dlr.de](mailto:arthur.grundner@dlr.de)
 
-------------------------------------------------------------------------
-
 ## List of Figures
 
 - [Fig 1] Comparison of the coarse-grained DYAMOND and ERA5 data: sec2_data/analyze_data.ipynb
