@@ -8,7 +8,7 @@ Author: Arthur Grundner, [arthur.grundner@dlr.de](mailto:arthur.grundner@dlr.de)
 ## List of Figures
 
 - [Fig 1](sec2_data/era5_dyamond_comp_4_vars.pdf), [Code](sec2_data/analyze_data.ipynb): Comparison of the coarse-grained DYAMOND and ERA5 data
-- [Fig 2](sec5_results/sec512_balancing_performance_and_complexity/performance_vs_complexity_logscale_pysr_fixed.pdf), [Code](sec5_results/sec512_balancing_performance_and_complexity/combine_results_dyamond.ipynb): All cloud cover schemes in a performance x complexity plot: 
+- [Fig 2](sec5_results/sec512_balancing_performance_and_complexity/performance_vs_complexity_logscale_pysr_fixed.pdf), [Code](sec5_results/sec512_balancing_performance_and_complexity/combine_results_dyamond.ipynb): All cloud cover schemes in a performance x complexity plot
 - [Fig 3](sec5_results/sec52_split_by_cloud_regimes/distributions_selected_schemes_pd.pdf), [Code](sec5_results/sec52_split_by_cloud_regimes/combining_selected_distributions.ipynb): Predicted cloud cover distributions
 - [Fig 4.1](sec5_results/sec53_transferability_to_era5/era5_1979-2021/tf_main_scatter.pdf), [Code](sec5_results/sec53_transferability_to_era5/combine_results.ipynb): Transfer learning to ERA5 data (selected schemes)
 - [Fig 4.2](sec5_results/sec53_transferability_to_era5/era5_1979-2021/tf_add_scatter.pdf), [Code](sec5_results/sec53_transferability_to_era5/combine_results.ipynb): Transfer learning to ERA5 data (polynomials & NNs)
