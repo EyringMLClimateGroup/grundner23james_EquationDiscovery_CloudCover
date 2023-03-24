@@ -22,8 +22,6 @@ Author: Arthur Grundner, [arthur.grundner@dlr.de](mailto:arthur.grundner@dlr.de)
 
 The scripts to generate these figures can be found in the same folders.
 
-------------------------------------------------------------------------
-
 ## Data
 
 To reproduce the results it is first necessary to coarse-grain and preprocess the DYAMOND and ERA5/ERA5.1 data sets:
@@ -33,8 +31,6 @@ To reproduce the results it is first necessary to coarse-grain and preprocess th
 
 It suffices to coarse-grain the variables: clc/cc, cli/ciwc, clw/clwc, hus/q, pa, ta/t, ua/u, va/v, zg/z
 
-------------------------------------------------------------------------
-
 ## Some Key Python Packages
 
 - PySR 0.10.1 [https://github.com/MilesCranmer/PySR]
@@ -42,8 +38,6 @@ It suffices to coarse-grain the variables: clc/cc, cli/ciwc, clw/clwc, hus/q, pa
 - mlxtend 0.20.0 [https://github.com/rasbt/mlxtend]
 - scikit-learn 1.0.2 [https://scikit-learn.org/]
 - TensorFlow 2.7.0 [https://tensorflow.org/]
-
-------------------------------------------------------------------------
 
 ## License
 This code is released under Apache 2.0. See [LICENSE](LICENSE) for more information.
