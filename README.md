@@ -10,8 +10,8 @@ Author: Arthur Grundner, [arthur.grundner@dlr.de](mailto:arthur.grundner@dlr.de)
 - [Fig 1](sec2_data/era5_dyamond_comp_4_vars.pdf), [Code](sec2_data/analyze_data.ipynb): Comparison of the coarse-grained DYAMOND and ERA5 data
 - [Fig 2](sec5_results/sec512_balancing_performance_and_complexity/performance_vs_complexity_logscale_pysr_fixed.pdf), [Code](sec5_results/sec512_balancing_performance_and_complexity/combine_results_dyamond.ipynb): All cloud cover schemes in a performance x complexity plot: 
 - [Fig 3](sec5_results/sec52_split_by_cloud_regimes/distributions_selected_schemes_pd.pdf), [Code](sec5_results/sec52_split_by_cloud_regimes/combining_selected_distributions.ipynb): Predicted cloud cover distributions
-- [Fig 4.1](sec5_results/sec53_transferability_to_era5/era5_1979-2021/tf_main_scatter.pdf), [Code](sec5_results/sec53_transferability_to_era5/era5_1979-2021/combine_results.ipynb): Transfer learning to ERA5 data (selected schemes)
-- [Fig 4.2](sec5_results/sec53_transferability_to_era5/era5_1979-2021/tf_add_scatter.pdf), [Code](sec5_results/sec53_transferability_to_era5/era5_1979-2021/combine_results.ipynb): Transfer learning to ERA5 data (polynomials & NNs)
+- [Fig 4.1](sec5_results/sec53_transferability_to_era5/era5_1979-2021/tf_main_scatter.pdf), [Code](sec5_results/sec53_transferability_to_era5/combine_results.ipynb): Transfer learning to ERA5 data (selected schemes)
+- [Fig 4.2](sec5_results/sec53_transferability_to_era5/era5_1979-2021/tf_add_scatter.pdf), [Code](sec5_results/sec53_transferability_to_era5/combine_results.ipynb): Transfer learning to ERA5 data (polynomials & NNs)
 - [Fig 5.1](sec6_physical_interpretation/I1_I2_I3.pdf), [Code](sec6_physical_interpretation/optimize_coefs_EQ4_check_physical_eqns.ipynb): Plots of the terms I_1, I_2, I_3
 - [Fig 5.2](sec6_physical_interpretation/rh_and_T_vs_cl_area.pdf), [Code](sec6_physical_interpretation/analyzing_eqns.ipynb): Conditional average w.r.t. RH and T
 - [Fig 5.3](sec6_physical_interpretation/rh_z_vs_cl_area_new.pdf), [Code](sec6_physical_interpretation/analyzing_eqns.ipynb): Conditional average w.r.t. dzRH
