@@ -35,6 +35,8 @@ It suffices to coarse-grain the variables: clc/cc, cli/ciwc, clw/clwc, hus/q, pa
 - GP-GOMEA [https://github.com/marcovirgolin/GP-GOMEA]
 - mlxtend 0.20.0 [https://github.com/rasbt/mlxtend]
 - scikit-learn 1.0.2 [https://scikit-learn.org/]
+- sympy 1.10.1 [https://github.com/sympy]
+- scipy 1.8.1 [https://github.com/scipy/]
 - TensorFlow 2.7.0 [https://tensorflow.org/]
 
 ## License
