@@ -14,6 +14,8 @@
 
 #=============================================================================
 
+## Coarse-grains the data (specified variables) from $inpath and stores the output in $outpath.
+
 # DO NOT RUN MULTIPLE INSTANCES OF THIS JOB IN PARALLEL; THEY WILL INTERFERE
 
 # 90 files in 8 hours (on Mistral)
