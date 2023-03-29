@@ -11,6 +11,8 @@
 
 #=============================================================================
 
+## Copies qi and qc files to $outpath. Converts them to nc.
+
 # Needs 1100s per file and node
 
 inpath='/work/ka1081/DYAMOND/ICON-2.5km'
