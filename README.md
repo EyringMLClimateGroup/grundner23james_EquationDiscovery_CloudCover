@@ -43,7 +43,7 @@ To create a working environment you can run the following line:
 ```
 conda install -c conda-forge tensorflow==2.7.0 scipy==1.8.1 sympy==1.10.1 scikit-learn==1.0.2 mlxtend==0.20.0 pysr==0.10.1
 ```
-To install the GP-GOMEA dependency please refer to their website.
+To install the GP-GOMEA dependency please refer to their website. The results were produced with the version numbers indicated above.
 
 ## License
 This code is released under Apache 2.0. See [LICENSE](LICENSE) for more information.
