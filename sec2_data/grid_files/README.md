@@ -9,7 +9,7 @@ P A T H T O T H E D A T A S E T
 - /work/bd1083/b309170/published_code/grundner23james_EquationDiscovery_CloudCover/sec2_data/grid_files
 
 O W N E R / P R O D U C E R O F T H E D A T A S E T 
-- The files are part of the ICON source code. The software code for the ICON model is available from https://code.mpimet.mpg.de/projects/iconpublic.
+- The files are part of the ICON source code. The software code for the ICON model is available from [https://code.mpimet.mpg.de/projects/iconpublic](https://code.mpimet.mpg.de/projects/iconpublic).
 
 D A T A U S A G E L I C E N S E 
 - See LICENSE file in this directory
