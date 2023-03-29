@@ -12,7 +12,7 @@ O W N E R / P R O D U C E R O F T H E D A T A S E T
 - The files are part of the ICON code. The software code for the ICON model is available from https://code.mpimet.mpg.de/projects/iconpublic.
 
 D A T A U S A G E L I C E N S E 
-- See LICENSE File in this directory
+- See LICENSE file in this directory
 
 C O N T E N T O F T H E D A T A S E T
 - Vertical grid files of DYAMOND on an R2B10 grid and ICON-A on an R2B5 grid.
