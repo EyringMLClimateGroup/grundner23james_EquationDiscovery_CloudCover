@@ -23,7 +23,7 @@ Author: Arthur Grundner, [arthur.grundner@dlr.de](mailto:arthur.grundner@dlr.de)
 ## Data
 
 To reproduce the results it is first necessary to coarse-grain and preprocess the DYAMOND and ERA5/ERA5.1 data sets:
-- Guide for how to coarse-grain the DYAMOND data: [strategy.txt](sec2_data/sec21_DYAMOND/strategy.txt)
+- Guide for how to coarse-grain the DYAMOND data: [strategy.md](sec2_data/sec21_DYAMOND/strategy.txt)
 - To then pre-process the DYAMOND data: [preprocessing.ipynb](sec2_data/sec21_DYAMOND/preprocessing.ipynb) 
 - Scripts to coarse-grain ERA5 data (1979-2021, first day of every quarter): [horizontally](sec2_data/sec22_ERA5/horizontal_coarse-graining), [vertically](sec2_data/vertical_coarse-graining)
 
