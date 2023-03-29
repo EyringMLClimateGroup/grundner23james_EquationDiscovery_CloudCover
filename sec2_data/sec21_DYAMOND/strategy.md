@@ -7,5 +7,5 @@ Steps to coarse-grain the data:
 -> Run [generate_weights_dyamond.py](../vertical_coarse-graining/generate_weights_dyamond.py) <br>
 -> Run [cloud_area_fraction_dyamond.py](../vertical_coarse-graining/cloud_area_fraction_dyamond.py) <br>
 -> Horizontally coarse-grain cl_area
-6. Coarse-grain data vertically [vertical_coarse-graining.py](../vertical_coarse-graining/vertical_coarse-graining.py)
+6. Coarse-grain data vertically [vertical_coarse-graining.py](../vertical_coarse-graining/vertical_coarse-graining.py) <br>
 -> state_vars, cloud_vars
