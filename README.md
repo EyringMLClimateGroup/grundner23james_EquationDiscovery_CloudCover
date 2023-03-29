@@ -30,7 +30,7 @@ To reproduce the results it is first necessary to have access to accounts on [DK
 It suffices to coarse-grain the variables: clc/cc, cli/ciwc, clw/clwc, hus/q, pa, ta/t, ua/u, va/v, zg/z
 
 ## Dependencies
-
+The results were produced with the version numbers indicated below:
 - PySR 0.10.1 [https://github.com/MilesCranmer/PySR]
 - GP-GOMEA [https://github.com/marcovirgolin/GP-GOMEA]
 - mlxtend 0.20.0 [https://github.com/rasbt/mlxtend]
@@ -43,7 +43,7 @@ To create a working environment you can run the following line:
 ```
 conda install -c conda-forge tensorflow==2.7.0 scipy==1.8.1 sympy==1.10.1 scikit-learn==1.0.2 mlxtend==0.20.0 pysr==0.10.1
 ```
-To install the GP-GOMEA dependency please refer to their website. The results were produced with the version numbers indicated above.
+To install the GP-GOMEA dependency please refer to their website.
 
 ## License
 This code is released under Apache 2.0. See [LICENSE](LICENSE) for more information.
