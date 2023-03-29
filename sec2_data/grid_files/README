@@ -1,0 +1,27 @@
+README concerning the vertical grid files of DYAMOND and ICON-A available via DKRZ resources 
+
+Date: 29/3/2023
+
+T I T L E O F T H E D A T A S E T
+- Vertical grid files of DYAMOND and ICON-A
+
+P A T H T O T H E D A T A S E T
+- /home/b/b309170/my_work/published_code/grundner23james_EquationDiscovery_CloudCover/sec2_data/grid_files
+
+O W N E R / P R O D U C E R O F T H E D A T A S E T 
+- NARVAL R2B10: Daniel Klocke and Deutscher Wetterdienst, Offenbach and Max-Planck-Institut für Meteorologie, Hamburg
+Coarse-grained to R2B4 and R2B5: Arthur Grundner and Deutsches Zentrum fuer Luft- und Raumfahrt e. V., Institut für Physik der Atmosphäre, Oberpfaffenhofen
+- QUBICC R2B9: Marco Giorgetta and Max-Planck-Institut für Meteorologie, Hamburg 
+Coarse-grained to R2B5: Arthur Grundner and Deutsches Zentrum fuer Luft- und Raumfahrt e. V., Institut für Physik der Atmosphäre, Oberpfaffenhofen
+
+D A T A U S A G E L I C E N S E 
+- See LICENSE File in this directory
+
+C O N T E N T O F T H E D A T A S E T
+- Vertical grid files of DYAMOND on an R2B10 grid and ICON-A on an R2B5 grid.
+
+D A T A U S A G E S C E N A R I O S
+- To coarse-grain DYAMOND data vertically to the ICON-A grid.
+
+M E T H O D S U S E D F O R D A T A C R E A T I O N
+- See 'Data-Driven Equation Discovery of a Cloud Cover Parameterization' (Grundner et al., 2023)
