@@ -1,6 +1,6 @@
 README concerning the vertical grid files of DYAMOND and ICON-A available via DKRZ resources 
 
-Date: 29/3/2023
+Date: 3/29/2023
 
 T I T L E O F T H E D A T A S E T
 - Vertical grid files of DYAMOND and ICON-A
@@ -9,10 +9,7 @@ P A T H T O T H E D A T A S E T
 - /work/bd1083/b309170/published_code/grundner23james_EquationDiscovery_CloudCover/sec2_data/grid_files
 
 O W N E R / P R O D U C E R O F T H E D A T A S E T 
-- NARVAL R2B10: Daniel Klocke and Deutscher Wetterdienst, Offenbach and Max-Planck-Institut für Meteorologie, Hamburg
-Coarse-grained to R2B4 and R2B5: Arthur Grundner and Deutsches Zentrum fuer Luft- und Raumfahrt e. V., Institut für Physik der Atmosphäre, Oberpfaffenhofen
-- QUBICC R2B9: Marco Giorgetta and Max-Planck-Institut für Meteorologie, Hamburg 
-Coarse-grained to R2B5: Arthur Grundner and Deutsches Zentrum fuer Luft- und Raumfahrt e. V., Institut für Physik der Atmosphäre, Oberpfaffenhofen
+- The files are part of the ICON code. The software code for the ICON model is available from https://code.mpimet.mpg.de/projects/iconpublic.
 
 D A T A U S A G E L I C E N S E 
 - See LICENSE File in this directory
