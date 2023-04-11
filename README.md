@@ -5,7 +5,7 @@ A hierarchical modeling framework to discover new machine learning-based equatio
 
 Author: Arthur Grundner, [arthur.grundner@dlr.de](mailto:arthur.grundner@dlr.de)
 
-The current release on zenodo can be found here: [![DOI](https://zenodo.org/badge/id.svg)](https://zenodo.org/badge/latestdoi/616471061)
+The current release on zenodo can be found here: [![DOI](https://zenodo.org/badge/616471061.svg)](https://zenodo.org/badge/latestdoi/616471061)
 
 ## List of Figures
 
