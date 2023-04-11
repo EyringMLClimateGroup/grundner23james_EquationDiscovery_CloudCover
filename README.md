@@ -4,8 +4,7 @@ A hierarchical modeling framework to discover new machine learning-based equatio
 > Grundner, A., Beucler, T., Gentine, P., & Eyring, V. (2023). Data-Driven Equation Discovery of a Cloud Cover Parameterization.
 
 Author: Arthur Grundner, [arthur.grundner@dlr.de](mailto:arthur.grundner@dlr.de)
-
-DOI: [![DOI](https://zenodo.org/badge/616471061.svg)](https://zenodo.org/badge/latestdoi/616471061)
+The current release on zenodo can be found here:: [![DOI](https://zenodo.org/badge/616471061.svg)](https://zenodo.org/badge/latestdoi/616471061)
 
 ## List of Figures
 
