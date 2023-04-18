@@ -1,7 +1,7 @@
 # Data-Driven Equation Discovery of a Cloud Cover Parameterization
 A hierarchical modeling framework to discover new machine learning-based equations for cloud cover, including symbolic regression
 
-> Grundner, A., Beucler, T., Gentine, P., & Eyring, V. (2023). Data-Driven Equation Discovery of a Cloud Cover Parameterization.
+> Grundner, A., Beucler, T., Gentine, P., & Eyring, V. (2023). Data-Driven Equation Discovery of a Cloud Cover Parameterization. [Preprint](https://arxiv.org/abs/2304.08063)
 
 Author: Arthur Grundner, [arthur.grundner@dlr.de](mailto:arthur.grundner@dlr.de)
 
