@@ -1,0 +1,46 @@
+The search took 467.74 minutes.
+MSE on the validation data: 298.854
+Size of the subset: 5000
+Complexity of very low complexity ops: 3
+\usepackage{breqn}
+\usepackage{booktabs}
+
+...
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+Equation & Complexity & Loss & Score \\
+\midrule
+$y = 54.5$ & $1$ & $1.38 \cdot 10^{3}$ & $0.0$ \\
+$y = x_{0} + 54.5$ & $5$ & $1.36 \cdot 10^{3}$ & $0.00391$ \\
+$y = 208. x_{0} + 85.9$ & $9$ & $548.$ & $0.228$ \\
+$y = 206. x_{0} - x_{2} + 84.7$ & $13$ & $544.$ & $0.00184$ \\
+$y = 1.74 \cdot 10^{3} x_{0}^{3} + 73.9$ & $15$ & $441.$ & $0.105$ \\
+$y = 93.4 - \frac{7.46}{x_{0} + 0.420}$ & $16$ & $382.$ & $0.145$ \\
+$y = 90.0 + \frac{x_{1} - 5.52}{x_{0} + 0.400}$ & $20$ & $351.$ & $0.0210$ \\
+$y = 15.0 x_{1} + 86.4 - \frac{5.21}{x_{0} + 0.401}$ & $24$ & $341.$ & $0.00738$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(41.2 - \frac{3.07}{x_{0} + 0.415}\right) \left(x_{1} - x_{2} + 1.42\right) \end{dmath*} \end{minipage} & $28$ & $287.$ & $0.0429$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(37.8 + \frac{x_{1} - 2.04}{x_{0} + 0.395}\right) \left(x_{1} - x_{2} + 1.50\right) \end{dmath*} \end{minipage} & $32$ & $246.$ & $0.0390$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(36.0 + \frac{x_{1} - 1.88}{x_{0} + 0.393}\right) \left(1.28 x_{1} - x_{2} + 1.53\right) \end{dmath*} \end{minipage} & $36$ & $236.$ & $0.00940$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(34.1 + \frac{x_{1} - 0.984}{x_{0} + 0.358}\right) \left(x_{1} \left(x_{0} + 1.04\right) - x_{2} + 1.50\right) \end{dmath*} \end{minipage} & $40$ & $229.$ & $0.00797$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(x_{1} - x_{2} + 1.39\right) \left(10.6 x_{1}^{2} + 36.9 + \frac{x_{1} - 1.85}{x_{0} + 0.387}\right) \end{dmath*} \end{minipage} & $44$ & $223.$ & $0.00656$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(x_{1} - x_{2} + 1.38\right) \left(10.9 x_{1}^{2} + 37.0 + \frac{x_{1} - 1.86}{x_{0} + 0.387}\right) \end{dmath*} \end{minipage} & $47$ & $223.$ & $0.000234$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(x_{1} - x_{2} + 1.35\right) \left(x_{1} \cdot \left(8.80 x_{0} + 8.80 x_{1}\right) + 37.0 + \frac{x_{1} - 1.80}{x_{0} + 0.386}\right) \end{dmath*} \end{minipage} & $48$ & $217.$ & $0.0258$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(x_{1} - x_{2} + 1.40\right) \left(x_{1} \cdot \left(8.80 - x_{1}\right) \left(x_{0} + x_{1}\right) + 36.2 + \frac{x_{1} - 1.74}{x_{0} + 0.385}\right) \end{dmath*} \end{minipage} & $52$ & $217.$ & $0.000634$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = - x_{3} + \left(x_{1} - x_{2} + 1.44\right) \left(x_{1} \cdot \left(8.44 x_{0} + 8.44 x_{1}\right) + 35.5 + \frac{x_{1} - 1.74}{x_{0} + 0.387}\right) \end{dmath*} \end{minipage} & $55$ & $217.$ & $0.000111$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(x_{1} - x_{2} + 1.38\right) \left(x_{1} \cdot \left(8.80 x_{0} + 8.80 x_{1}\right) + x_{3}^{2} + 36.2 + \frac{x_{1} - 1.75}{x_{0} + 0.385}\right) \end{dmath*} \end{minipage} & $56$ & $214.$ & $0.0104$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(x_{1} - x_{2} + 1.38\right) \left(x_{1} \cdot \left(8.80 x_{0} + 8.80 x_{1}\right) + x_{3} \left(x_{3} + x_{4}\right) + 36.2 + \frac{x_{1} - 1.76}{x_{0} + 0.386}\right) \end{dmath*} \end{minipage} & $60$ & $212.$ & $0.00304$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(x_{1} - x_{2} + 1.37\right) \left(x_{1} \cdot \left(8.80 x_{0} + 8.80 x_{1}\right) + x_{3} \cdot \left(2 x_{3} + x_{4}\right) + 36.2 + \frac{x_{1} - 1.81}{x_{0} + 0.387}\right) \end{dmath*} \end{minipage} & $64$ & $210.$ & $0.00253$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(x_{1} - x_{2} + 1.40\right) \left(x_{1} \cdot \left(8.82 x_{0} + 8.82 x_{1}\right) + x_{3} \cdot \left(2 x_{3} + x_{4} - 1.76\right) + 35.7 + \frac{x_{1} - 1.76}{x_{0} + 0.385}\right) \end{dmath*} \end{minipage} & $68$ & $207.$ & $0.00303$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(x_{1} - x_{2} + 1.43\right) \left(\left(2 x_{1} + \sqrt{\left|{x_{0} - 1.85 x_{2}}\right|}\right)^{3} - \operatorname{relu}{\left(- \sinh{\left(12.2 x_{0} \right)} \right)} + 30.3\right) \end{dmath*} \end{minipage} & $71$ & $207.$ & $0.000773$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(x_{1} - x_{2} + 1.40\right) \left(x_{1} \cdot \left(8.82 x_{0} + 8.82 x_{1}\right) + x_{3} \left(x_{1} + 2 x_{3} + x_{4} - 1.82\right) + 35.7 + \frac{x_{1} - 1.78}{x_{0} + 0.386}\right) \end{dmath*} \end{minipage} & $72$ & $207.$ & $0.000477$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = \left(x_{1} - x_{2} + 1.45\right) \left(\left(2 x_{1} + \sqrt{\left|{x_{0} - 2 x_{2} + 0.188}\right|}\right)^{3} - \operatorname{relu}{\left(- \sinh{\left(12.1 x_{0} \right)} \right)} + 29.2\right) \end{dmath*} \end{minipage} & $75$ & $205.$ & $0.00292$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = - x_{3} + \left(x_{1} - x_{2} + 1.45\right) \left(\left(2 x_{1} + \sqrt{\left|{x_{0} - 2 x_{2} + 0.188}\right|}\right)^{3} - \operatorname{relu}{\left(- \sinh{\left(12.1 x_{0} \right)} \right)} + 29.2\right) \end{dmath*} \end{minipage} & $79$ & $203.$ & $0.00254$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = - 2 x_{3} + \left(x_{1} - x_{2} + 1.45\right) \left(\left(2 x_{1} + \sqrt{\left|{x_{0} - 2 x_{2} + 0.183}\right|}\right)^{3} - \operatorname{relu}{\left(- \sinh{\left(12.1 x_{0} \right)} \right)} + 29.2\right) \end{dmath*} \end{minipage} & $83$ & $201.$ & $0.00157$ \\
+\begin{minipage}{0.8\linewidth} \vspace{-1em} \begin{dmath*} y = - x_{0} - 2 x_{3} + \left(x_{1} - x_{2} + 1.46\right) \left(\left(2 x_{1} + \sqrt{\left|{x_{0} - 2 x_{2} + 0.188}\right|}\right)^{3} - \operatorname{relu}{\left(- \sinh{\left(12.1 x_{0} \right)} \right)} + 29.2\right) \end{dmath*} \end{minipage} & $87$ & $201.$ & $0.000793$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}

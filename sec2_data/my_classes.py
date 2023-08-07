@@ -1,6 +1,8 @@
 import numpy as np
 import xarray as xr
 import time
+import glob
+import re
 import os
 from tensorflow import keras
 from collections import OrderedDict
@@ -175,7 +177,7 @@ def load_data(source, days, vert_interp=True, resolution='R02B04', order_of_vars
                        The cheaper variables (zg, coriolis, fr_lake, fr_land) are always loaded and discarded later.
                        For QUBICC 'clw' is also always initially loaded.
                        The more expensive variables (temp, pres, ...) are only loaded if they are included in order_of_vars
-        path:          If source == 'other', the path needs to be provided
+        path:          If source == 'other' or 'split_by_var_name', the path needs to be provided
         
         returns: A dictionary containing the data with the features as keys.
     '''
@@ -394,7 +396,7 @@ def load_data(source, days, vert_interp=True, resolution='R02B04', order_of_vars
         # e.g. DYAMOND data
         
         # Get not_nan quickly
-        DS = xr.open_mfdataset(path+'/clc/int_var_nwp_R2B10_lkm1007_atm_3d_clc_ml_20160814T000000Z_R02B05.nc', combine='by_coords')
+        DS = xr.open_mfdataset(path+'/clc/*20160814*.nc', combine='by_coords')
         da = DS.clc.values
         not_nan = ~np.isnan(da[0,30,:]) #The surface-nearest layer 30 shall not contain NAN-values
         
@@ -402,26 +404,39 @@ def load_data(source, days, vert_interp=True, resolution='R02B04', order_of_vars
         #zg
         DS = xr.open_mfdataset(path+'/zg/zg*')
         da = DS.zg.values
-        data_dict['zg'] = da[:, not_nan]
+        if da.shape[0] == 1:
+            data_dict['zg'] = da[0, :, not_nan]
+        else:
+            data_dict['zg'] = da[:, not_nan]
         
-        #Coriolis Parameter
-        DS = xr.open_mfdataset('/pool/data/ICON/grids/public/mpim/0019/icon_grid_0019_R02B05_G.nc')
-        lat_cell_center = DS.lat_cell_centre.values
-        # Rotation rate of the earth
-        Omega = 7.2921*10**(-5) # in 1/s
-        # Varies between -0.0001458 and 0.0001458
-        data_dict['coriolis'] = (2*Omega*np.sin(lat_cell_center))[not_nan]
+        if 'coriolis' in order_of_vars:
+            #Coriolis Parameter
+            DS = xr.open_mfdataset('/pool/data/ICON/grids/public/mpim/0019/icon_grid_0019_R02B05_G.nc')
+            lat_cell_center = DS.lat_cell_centre.values
+            # Rotation rate of the earth
+            Omega = 7.2921*10**(-5) # in 1/s
+            # Varies between -0.0001458 and 0.0001458
+            data_dict['coriolis'] = (2*Omega*np.sin(lat_cell_center))[not_nan]
 
-        #fr_lake
-        DS = xr.open_dataset('/pool/data/ICON/qubicc/grids/public/mpim/0019/land/bc_land_frac_1992.nc')
-        da = DS.lake.values
-        assert np.all(~np.isnan(da))
-        data_dict['fr_lake'] = da[not_nan]
+        if 'fr_lake' in order_of_vars:
+            #fr_lake
+            DS = xr.open_dataset('/pool/data/ICON/qubicc/grids/public/mpim/0019/land/bc_land_frac_1992.nc')
+            da = DS.lake.values
+            assert np.all(~np.isnan(da))
+            data_dict['fr_lake'] = da[not_nan]
 
-        #fr_land
-        da = DS.land.values
-        assert np.all(~np.isnan(da))
-        data_dict['fr_land'] = da[not_nan]
+        if 'fr_land' in order_of_vars:
+            #fr_land
+            if resolution=='R02B05':
+                DS = xr.open_dataset('/pool/data/ICON/qubicc/grids/public/mpim/0019/land/bc_land_frac_1992.nc')
+            elif resolution=='R02B06':    
+                DS = xr.open_dataset('/pool/data/ICON/grids/public/mpim/0021/land/r0001/bc_land_frac_1976.nc')
+            elif resolution=='R02B07':
+                DS = xr.open_dataset('/pool/data/ICON/grids/public/mpim/0023/land/r0001/bc_land_frac_1976.nc')
+                
+            da = DS.land.values
+            assert np.all(~np.isnan(da))
+            data_dict['fr_land'] = da[not_nan]
         
         if days=='all':
             load_days = '*.nc'
@@ -429,13 +444,32 @@ def load_data(source, days, vert_interp=True, resolution='R02B04', order_of_vars
             load_days = '*R02B05.nc'
         elif days=='one':
             load_days = '*20160811*.nc'
+        elif days=='aug_10s':
+            # Define the days to look for in the file names
+            target_days = ['20160811', '20160812', '20160813', '20160814', '20160815', \
+                           '20160816', '20160817', '20160818', '20160819', '20160820']
+            # Generate the regular expression pattern based on the target days
+            pattern = "(" + "|".join(target_days) + ")"
         
         # Hourly data
         for vars in order_of_vars:
             if vars in ['zg', 'coriolis', 'fr_land']: 
                 continue
             print(vars)
-            DS = xr.open_mfdataset(path + '/' + vars + '/*_ml_' + load_days, combine='by_coords')  
+            if days=='aug_10s':
+                
+                path_var = os.path.join(path, vars)
+                
+                # Use glob to find files and then filter with the regular expression
+                all_files = glob.glob(f"{path_var}/*.nc")                
+                matching_files = np.sort([file for file in all_files if re.search(pattern, file)])
+                
+                DS = xr.open_mfdataset(matching_files, combine='by_coords')
+                print("Successfully opened the following files:")
+                for file in matching_files:
+                    print(file)
+            else:
+                DS = xr.open_mfdataset(path + '/' + vars + '/*_ml_' + load_days, combine='by_coords')  
             if vars == 'clc_faulty':
                 da = getattr(DS, 'clc').values  
             else:

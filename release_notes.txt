@@ -1,0 +1,22 @@
+v1.1
+----
+
+appendix: Divided I1,I2,I3 by 100. Added plots of the a5 term and code for Appendix B.
+
+sec3_data-driven_modeling
+- Include proper files for SFS sequences
+- SFS per cloud regime
+- PySR equations per cloud regime
+- Include code for non-greedy selector
+- Correct SFS files for linear model/polynomials 
+
+sec5_results
+- Evaluate Teixeira Scheme in subtropics
+- Improve cloud regime figure
+- New code to test schemes on higher horizontal resolutions
+ 
+sec6_physical_interpretation
+- Plotting storm-scaled cloud water/ice
+- Updated ablation study acc. to new form of the analytical equation
+
+- Updated Readme
