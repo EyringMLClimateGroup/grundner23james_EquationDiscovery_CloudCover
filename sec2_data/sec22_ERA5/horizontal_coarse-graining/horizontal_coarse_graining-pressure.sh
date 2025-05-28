@@ -93,8 +93,8 @@ foo () {
 # We use CDO version 2.0.6 (https://code.mpimet.mpg.de/projects/cdo)
 module load cdo
 
-files="`ls $outpath`"
 outpath='/work/bd1179/b309170/ERA5/hcg_data'
+files="`ls $outpath`"
 
 # No more than N processes run at the same time
 N=11
