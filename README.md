@@ -3,7 +3,7 @@ A hierarchical modeling framework to discover new machine learning-based equatio
 
 It is part of our paper published in JAMES:
 
-> Grundner, A., Beucler, T., Gentine, P., & Eyring, V. (2024). Data-Driven Equation Discovery of a Cloud Cover Parameterization. Journal of Advances in Modeling Earth Systems, 16.3, e2023MS003763. [Link](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023MS003763). [Preprint](https://arxiv.org/abs/2304.08063).
+> Grundner, A., Beucler, T., Gentine, P., & Eyring, V. (2024). Data-Driven Equation Discovery of a Cloud Cover Parameterization. Journal of Advances in Modeling Earth Systems, 16.3, e2023MS003763. [Link to JAMES](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023MS003763). [Preprint](https://arxiv.org/abs/2304.08063).
 
 Corresponding author: Arthur Grundner, [arthur.grundner@dlr.de](mailto:arthur.grundner@dlr.de)
 
